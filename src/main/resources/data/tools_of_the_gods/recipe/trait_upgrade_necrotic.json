@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "WBW",
+    "BSB",
+    "WBW"
+  ],
+  "key": {
+    "W": {
+      "item": "minecraft:wither_skeleton_skull"
+    },
+    "B": {
+      "item": "minecraft:bone_block"
+    },
+    "S": {
+      "item": "minecraft:nether_star"
+    }
+  },
+  "result": {
+    "item": "tools_of_the_gods:trait_upgrade_necrotic",
+    "count": 1
+  }
+}

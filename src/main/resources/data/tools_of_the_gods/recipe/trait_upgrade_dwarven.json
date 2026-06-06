@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "DDD",
+    "DID",
+    "DDD"
+  ],
+  "key": {
+    "D": {
+      "item": "minecraft:deepslate"
+    },
+    "I": {
+      "item": "minecraft:iron_pickaxe"
+    }
+  },
+  "result": {
+    "item": "tools_of_the_gods:trait_upgrade_dwarven",
+    "count": 1
+  }
+}

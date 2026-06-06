@@ -1,0 +1,20 @@
+{
+  "parent": "tools_of_the_gods:root_of_the_gods",
+  "display": {
+    "icon": { "id": "tools_of_the_gods:shield_of_the_gods" },
+    "title": { "translate": "adv.tools_of_the_gods.motion_of_the_gods.title" },
+    "description": { "translate": "adv.tools_of_the_gods.motion_of_the_gods.desc" },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "shield": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [{ "items": ["tools_of_the_gods:shield_of_the_gods"] }]
+      }
+    }
+  }
+}

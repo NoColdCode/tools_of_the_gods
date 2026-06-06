@@ -1,0 +1,32 @@
+{
+  "parent": "tools_of_the_gods:primal_pickaxe",
+  "display": {
+    "icon": {
+      "id": "tools_of_the_gods:hammer_of_the_gods"
+    },
+    "title": {
+      "translate": "adv.tools_of_the_gods.hammer_time.title"
+    },
+    "description": {
+      "translate": "adv.tools_of_the_gods.hammer_time.desc"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "has_hammer": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "tools_of_the_gods:hammer_of_the_gods"
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "pattern": ["a a", "bcb", "a a"],
+  "key": {
+    "a": { "item": "minecraft:feather" },
+    "b": { "item": "minecraft:phantom_membrane" },
+    "c": { "item": "tools_of_the_gods:blue_gem" }
+  },
+  "result": { "id": "tools_of_the_gods:wings_of_the_gods", "count": 1 }
+}

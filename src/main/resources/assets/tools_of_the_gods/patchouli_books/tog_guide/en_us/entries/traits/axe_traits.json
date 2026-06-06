@@ -1,0 +1,21 @@
+{
+  "name": "Axe Traits",
+  "category": "tools_of_the_gods:traits",
+  "icon": "tools_of_the_gods:axe_of_the_gods",
+  "read_by_default": true,
+  "sortnum": 3,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "$(#FFD700)Combat traits$()$(br2)$(#55FFFF)Poison I$() (1 slot) — $(item)Fermented Spider Eye$()$(br)Poison I for 5s on hit, -20% atk speed.$(br2)$(#55FFFF)Poison II$() (2 slots) — same item$(br)Poison I for 10s, -30% atk speed.$(br2)$(#55FFFF)Freezy I$() (1 slot) — $(item)Ice$()$(br)Slowness I 10s, -0.5 flat dmg.$(br2)$(#55FFFF)Freezy II$() (2 slots) — same item$(br)Slowness II 15s, -1 flat dmg."
+    },
+    {
+      "type": "patchouli:text",
+      "text": "$(#55FFFF)Sharpy I$() (1 slot) — $(item)Iron Ingot$()$(br)+2 flat dmg, -30% atk/mine speed.$(br2)$(#55FFFF)Sharpy II$() (2 slots) — same item$(br)+4 flat dmg, -50% speeds.$(br2)$(#55FFFF)Sharpy III$() (3 slots) — same item$(br)+6 flat dmg, -80% speeds.$(br2)$(#55FFFF)Titan I$() (1 slot) — $(item)Anvil$()$(br)+2 flat dmg, -15% atk / -10% mine speed.$(br2)$(#55FFFF)Titan II$() (2 slots) — same item$(br)+4 flat dmg, -30% / -20%."
+    },
+    {
+      "type": "patchouli:text",
+      "text": "$(#FFD700)Mining (axe also chops)$()$(br2)Broad Touch I — tree-fell cap 12 logs. Broad Touch II — up to 64 logs.$(br2)Momentum, Moonlit, Silky, Autosmelt, Speedy, Frenzy — same as pickaxe (see $(l:traits/pickaxe_traits)Pickaxe Traits$()).$(br2)$(#FFD700)Utility$() — Scholar, Sustaining, Soulbound, Modifiable, Magnetic, Scavenger, Bountiful, Purifying, Swiftstep, Bulwark."
+    }
+  ]
+}

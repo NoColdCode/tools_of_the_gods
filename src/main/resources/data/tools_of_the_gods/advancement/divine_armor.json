@@ -1,0 +1,20 @@
+{
+  "parent": "tools_of_the_gods:root_of_the_gods",
+  "display": {
+    "icon": { "id": "tools_of_the_gods:chestplate_of_the_gods" },
+    "title": { "translate": "adv.tools_of_the_gods.divine_armor.title" },
+    "description": { "translate": "adv.tools_of_the_gods.divine_armor.desc" },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "armor": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [{ "items": ["tools_of_the_gods:helmet_of_the_gods", "tools_of_the_gods:chestplate_of_the_gods", "tools_of_the_gods:leggings_of_the_gods", "tools_of_the_gods:boots_of_the_gods"] }]
+      }
+    }
+  }
+}

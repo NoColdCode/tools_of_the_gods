@@ -1,0 +1,16 @@
+{
+  "name": "This Book",
+  "category": "tools_of_the_gods:intro",
+  "icon": "tools_of_the_gods:tog_guide_book",
+  "sortnum": 3,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "Lost your guide? Craft $(item)Book + Paper$() (shapeless).$(br2)You also receive one copy on first join to this world."
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "tools_of_the_gods:tog_guide_book"
+    }
+  ]
+}

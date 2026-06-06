@@ -1,0 +1,9 @@
+{
+	filename: "data"
+	title: "Tools of the Gods Quests"
+	default_quest_shape: "square"
+	default_hide_dependency_lines: false
+	chapters: [
+		"tools_of_the_gods:chapter_main"
+	]
+}

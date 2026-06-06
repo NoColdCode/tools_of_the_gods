@@ -1,0 +1,32 @@
+{
+  "parent": "tools_of_the_gods:crude_awakening",
+  "display": {
+    "icon": {
+      "id": "tools_of_the_gods:pickaxe_of_the_gods"
+    },
+    "title": {
+      "translate": "adv.tools_of_the_gods.primal_pickaxe.title"
+    },
+    "description": {
+      "translate": "adv.tools_of_the_gods.primal_pickaxe.desc"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "has_primal_pickaxe": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "tools_of_the_gods:pickaxe_of_the_gods"
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

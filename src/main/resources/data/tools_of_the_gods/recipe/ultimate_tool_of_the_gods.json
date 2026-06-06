@@ -1,0 +1,44 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "pattern": [
+    "pas",
+    "huc",
+    "bq "
+  ],
+  "key": {
+    "p": {
+      "type": "tools_of_the_gods:max_progression_tool",
+      "item": "tools_of_the_gods:pickaxe_of_the_gods"
+    },
+    "a": {
+      "type": "tools_of_the_gods:max_progression_tool",
+      "item": "tools_of_the_gods:axe_of_the_gods"
+    },
+    "s": {
+      "type": "tools_of_the_gods:max_progression_tool",
+      "item": "tools_of_the_gods:sword_of_the_gods"
+    },
+    "h": {
+      "type": "tools_of_the_gods:max_progression_tool",
+      "item": "tools_of_the_gods:hammer_of_the_gods"
+    },
+    "u": { "item": "tools_of_the_gods:universe_gem" },
+    "c": {
+      "type": "tools_of_the_gods:max_progression_tool",
+      "item": "tools_of_the_gods:shovel_of_the_gods"
+    },
+    "b": {
+      "type": "tools_of_the_gods:max_progression_tool",
+      "item": "tools_of_the_gods:bow_of_the_gods"
+    },
+    "q": {
+      "type": "tools_of_the_gods:max_progression_tool",
+      "item": "tools_of_the_gods:hoe_of_the_gods"
+    }
+  },
+  "result": {
+    "id": "tools_of_the_gods:ultimate_tool_of_the_gods",
+    "count": 1
+  }
+}

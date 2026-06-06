@@ -1,0 +1,113 @@
+{
+  "parent": "tools_of_the_gods:primal_pickaxe",
+  "display": {
+    "icon": {
+      "id": "tools_of_the_gods:axe_of_the_gods"
+    },
+    "title": {
+      "translate": "adv.tools_of_the_gods.arsenal_unfolds.title"
+    },
+    "description": {
+      "translate": "adv.tools_of_the_gods.arsenal_unfolds.desc"
+    },
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "has_axe": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "tools_of_the_gods:axe_of_the_gods"
+            ]
+          }
+        ]
+      }
+    },
+    "has_shovel": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "tools_of_the_gods:shovel_of_the_gods"
+            ]
+          }
+        ]
+      }
+    },
+    "has_hoe": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "tools_of_the_gods:hoe_of_the_gods"
+            ]
+          }
+        ]
+      }
+    },
+    "has_sword": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "tools_of_the_gods:sword_of_the_gods"
+            ]
+          }
+        ]
+      }
+    },
+    "has_hammer": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "tools_of_the_gods:hammer_of_the_gods"
+            ]
+          }
+        ]
+      }
+    },
+    "has_bow": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "tools_of_the_gods:bow_of_the_gods"
+            ]
+          }
+        ]
+      }
+    },
+    "has_pickaxe": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "tools_of_the_gods:pickaxe_of_the_gods"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    ["has_axe"],
+    ["has_shovel"],
+    ["has_hoe"],
+    ["has_sword"],
+    ["has_hammer"],
+    ["has_bow"],
+    ["has_pickaxe"]
+  ]
+}

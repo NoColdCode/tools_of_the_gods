@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "PPP",
+    "PDP",
+    "PPP"
+  ],
+  "key": {
+    "P": {
+      "item": "minecraft:phantom_membrane"
+    },
+    "D": {
+      "item": "minecraft:diamond_block"
+    }
+  },
+  "result": {
+    "item": "tools_of_the_gods:trait_upgrade_lightweight",
+    "count": 1
+  }
+}

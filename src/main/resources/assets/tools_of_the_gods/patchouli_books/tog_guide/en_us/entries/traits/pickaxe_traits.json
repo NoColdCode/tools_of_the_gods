@@ -1,0 +1,33 @@
+{
+  "name": "Pickaxe Traits",
+  "category": "tools_of_the_gods:traits",
+  "icon": "tools_of_the_gods:pickaxe_of_the_gods",
+  "read_by_default": true,
+  "sortnum": 1,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "$(#FFD700)Mining traits$()$(br2)$(#55FFFF)Speedy I$() (1 slot) — $(item)Redstone Block$()$(br)+20% atk speed, +15% mine speed, -10% atk dmg, -10% XP$(br2)$(#55FFFF)Speedy II$() (2 slots) — same item$(br)+40% / +30% / -15% / -15%$(br2)$(#55FFFF)Speedy III$() (3 slots) — same item$(br)+65% / +50% / -20% / -20%"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "$(#55FFFF)Silky I$() (1 slot) — $(item)String$()$(br)Always Silk Touch.$(br2)$(#55FFFF)Silky II$() (1 slot) — same item$(br)Silk Touch, toggle with Shift+Right-click.$(br2)$(#55FFFF)Autosmelt$() (1 slot) — $(item)Magma Block$()$(br)Smelts broken blocks.$(br2)$(#55FFFF)Autosmelt II$() (1 slot) — same item$(br)Toggleable autosmelt."
+    },
+    {
+      "type": "patchouli:text",
+      "text": "$(#55FFFF)Momentum I$() (1 slot) — $(item)Sugar$()$(br)Mine 50 blocks → +25% mine speed; resets after 3s idle.$(br2)$(#55FFFF)Momentum II$() (2 slots) — same item$(br)40 blocks → +40% mine speed.$(br2)$(#55FFFF)Broad Touch I$() (2 slots) — $(item)Slime Ball$()$(br)3×3 mining.$(br2)$(#55FFFF)Broad Touch II$() (4 slots) — same item$(br)1×1 / 3×3 / 5×5 modes (Shift+Right-click)."
+    },
+    {
+      "type": "patchouli:text",
+      "text": "$(#55FFFF)Moonlit I$() (1 slot) — $(item)Phantom Membrane$()$(br)At night: +12% mine speed.$(br2)$(#55FFFF)Moonlit II$() (2 slots) — same item$(br)At night: +20% mine speed.$(br2)$(#55FFFF)Frenzy I–III$() (1/2/3 slots) — $(item)Blaze Powder$()$(br)+10/18/28% atk speed, +6/12/18% mine speed, -4/8/12% atk dmg."
+    },
+    {
+      "type": "patchouli:text",
+      "text": "$(#FFD700)Utility (also on pickaxe)$()$(br2)$(#55FFFF)Scholar I/II$() — $(item)Lapis Lazuli$() — +10% / +20% XP.$(br2)$(#55FFFF)Magnetic I$() — $(item)Copper Ingot$() — attracts drops ~5 blocks.$(br2)$(#55FFFF)Scavenger I$() — $(item)Hopper$() — auto-collect drops.$(br2)$(#55FFFF)Bountiful I$() — $(item)Emerald$() — 8% duplicate chance.$(br2)$(#55FFFF)Soulbound$() — $(item)Nether Star$() — kept on death.$(br2)$(#55FFFF)Modifiable$() — $(item)Diamond$() — +1 trait slot."
+    },
+    {
+      "type": "patchouli:text",
+      "text": "$(#55FFFF)Sustaining I–III$() — $(item)Bread$()$(br)I: +1 food/30s, +1 sat/20s, loot -20%$(br)II: +1 food/20s, +2 sat/15s, loot -35%$(br)III: +2 food/30s, +2 sat/10s, loot -50%$(br2)$(#55FFFF)Purifying I$() — $(item)Glowstone Dust$() — clears 1 debuff every 8s.$(br2)$(#55FFFF)Swiftstep I$() — $(item)Feather$() — Speed I while held.$(br2)$(#55FFFF)Bulwark I$() — $(item)Brick$() — Resistance I while held."
+    }
+  ]
+}

@@ -1,0 +1,248 @@
+{
+	filename: "tools_of_the_gods"
+	id: "tools_of_the_gods:chapter_main"
+	title: "Tools of the Gods"
+	subtitle: "From Crude to Ultimate"
+	icon: "tools_of_the_gods:pickaxe_of_the_gods"
+	order_index: 0
+	quests: [
+		{
+			id: "tools_of_the_gods:q_crude"
+			x: 0.0d
+			y: 0.0d
+			title: "Crude Awakening"
+			description: ["Get your first Crude Stone Pickaxe."]
+			tasks: [
+				{
+					id: "tools_of_the_gods:t_crude"
+					type: "item"
+					item: "tools_of_the_gods:crude_stonepickaxe"
+					count: 1L
+				}
+			]
+			rewards: [
+				{
+					id: "tools_of_the_gods:r_crude"
+					type: "xp"
+					xp: 200
+				}
+			]
+		},
+		{
+			id: "tools_of_the_gods:q_pickaxe"
+			x: 3.0d
+			y: 0.0d
+			title: "Primal Core"
+			description: ["Craft your Primal Wooden Pickaxe."]
+			dependencies: ["tools_of_the_gods:q_crude"]
+			tasks: [
+				{
+					id: "tools_of_the_gods:t_pickaxe"
+					type: "item"
+					item: "tools_of_the_gods:pickaxe_of_the_gods"
+					count: 1L
+				}
+			]
+			rewards: [
+				{
+					id: "tools_of_the_gods:r_pickaxe"
+					type: "item"
+					item: "minecraft:lapis_lazuli"
+					count: 32L
+				}
+			]
+		},
+		{
+			id: "tools_of_the_gods:q_hammer"
+			x: 5.0d
+			y: -2.0d
+			title: "Hammer Time"
+			description: ["Craft the 3x3 mining hammer."]
+			dependencies: ["tools_of_the_gods:q_pickaxe"]
+			tasks: [
+				{
+					id: "tools_of_the_gods:t_hammer"
+					type: "item"
+					item: "tools_of_the_gods:hammer_of_the_gods"
+					count: 1L
+				}
+			]
+		},
+		{
+			id: "tools_of_the_gods:q_axe"
+			x: 5.0d
+			y: 0.0d
+			title: "Woodcutter of the Gods"
+			description: ["Craft the primal axe."]
+			dependencies: ["tools_of_the_gods:q_pickaxe"]
+			tasks: [
+				{
+					id: "tools_of_the_gods:t_axe"
+					type: "item"
+					item: "tools_of_the_gods:axe_of_the_gods"
+					count: 1L
+				}
+			]
+		},
+		{
+			id: "tools_of_the_gods:q_shovel"
+			x: 5.0d
+			y: 2.0d
+			title: "Earth Shaper"
+			description: ["Craft the primal shovel."]
+			dependencies: ["tools_of_the_gods:q_pickaxe"]
+			tasks: [
+				{
+					id: "tools_of_the_gods:t_shovel"
+					type: "item"
+					item: "tools_of_the_gods:shovel_of_the_gods"
+					count: 1L
+				}
+			]
+		},
+		{
+			id: "tools_of_the_gods:q_hoe"
+			x: 7.0d
+			y: -1.0d
+			title: "Harvest Whisperer"
+			description: ["Craft the primal hoe."]
+			dependencies: ["tools_of_the_gods:q_axe"]
+			tasks: [
+				{
+					id: "tools_of_the_gods:t_hoe"
+					type: "item"
+					item: "tools_of_the_gods:hoe_of_the_gods"
+					count: 1L
+				}
+			]
+		},
+		{
+			id: "tools_of_the_gods:q_sword"
+			x: 7.0d
+			y: 1.0d
+			title: "Edge of Divinity"
+			description: ["Craft the primal sword."]
+			dependencies: ["tools_of_the_gods:q_axe"]
+			tasks: [
+				{
+					id: "tools_of_the_gods:t_sword"
+					type: "item"
+					item: "tools_of_the_gods:sword_of_the_gods"
+					count: 1L
+				}
+			]
+		},
+		{
+			id: "tools_of_the_gods:q_bow"
+			x: 7.0d
+			y: 3.0d
+			title: "Bow of Fate"
+			description: ["Craft the primal bow."]
+			dependencies: ["tools_of_the_gods:q_shovel"]
+			tasks: [
+				{
+					id: "tools_of_the_gods:t_bow"
+					type: "item"
+					item: "tools_of_the_gods:bow_of_the_gods"
+					count: 1L
+				}
+			]
+		},
+		{
+			id: "tools_of_the_gods:q_orbs"
+			x: 10.0d
+			y: 0.0d
+			title: "Orb Scholar"
+			description: ["Get every orb at least once."]
+			dependencies: [
+				"tools_of_the_gods:q_hammer",
+				"tools_of_the_gods:q_hoe",
+				"tools_of_the_gods:q_sword",
+				"tools_of_the_gods:q_bow"
+			]
+			tasks: [
+				{
+					id: "tools_of_the_gods:t_orb_gold"
+					type: "item"
+					item: "tools_of_the_gods:gold_orb"
+					count: 1L
+				},
+				{
+					id: "tools_of_the_gods:t_orb_amethyst"
+					type: "item"
+					item: "tools_of_the_gods:amethyst_orb"
+					count: 1L
+				},
+				{
+					id: "tools_of_the_gods:t_orb_red"
+					type: "item"
+					item: "tools_of_the_gods:red_orb"
+					count: 1L
+				},
+				{
+					id: "tools_of_the_gods:t_orb_gray"
+					type: "item"
+					item: "tools_of_the_gods:gray_orb"
+					count: 1L
+				},
+				{
+					id: "tools_of_the_gods:t_orb_green"
+					type: "item"
+					item: "tools_of_the_gods:green_orb"
+					count: 1L
+				},
+				{
+					id: "tools_of_the_gods:t_orb_cyan"
+					type: "item"
+					item: "tools_of_the_gods:cyan_orb"
+					count: 1L
+				},
+				{
+					id: "tools_of_the_gods:t_orb_universe"
+					type: "item"
+					item: "tools_of_the_gods:universe_orb"
+					count: 1L
+				}
+			]
+		},
+		{
+			id: "tools_of_the_gods:q_trait"
+			x: 12.0d
+			y: -1.0d
+			title: "Trait Surgeon"
+			description: ["Acquire a Trait Purge Core."]
+			dependencies: ["tools_of_the_gods:q_orbs"]
+			tasks: [
+				{
+					id: "tools_of_the_gods:t_trait"
+					type: "item"
+					item: "tools_of_the_gods:trait_remover"
+					count: 1L
+				}
+			]
+		},
+		{
+			id: "tools_of_the_gods:q_ultimate"
+			x: 14.0d
+			y: 0.0d
+			title: "Ultimate Ascension"
+			description: ["Fuse all god tools into one ultimate relic."]
+			dependencies: ["tools_of_the_gods:q_orbs"]
+			tasks: [
+				{
+					id: "tools_of_the_gods:t_ultimate"
+					type: "item"
+					item: "tools_of_the_gods:ultimate_tool_of_the_gods"
+					count: 1L
+				}
+			]
+			rewards: [
+				{
+					id: "tools_of_the_gods:r_ultimate"
+					type: "xp"
+					xp: 2500
+				}
+			]
+		}
+	]
+}

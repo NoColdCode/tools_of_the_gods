@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "III",
+    "IPI",
+    "III"
+  ],
+  "key": {
+    "I": { "item": "minecraft:iron_ingot" },
+    "P": { "tag": "minecraft:planks" }
+  },
+  "result": {
+    "id": "tools_of_the_gods:trait_smithing_table",
+    "count": 1
+  }
+}

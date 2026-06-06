@@ -1,0 +1,374 @@
+{
+  "mod_elements": [
+    {
+      "name": "PrimalWoodenToolsPickaxe",
+      "type": "tool",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "primal_wooden_tools_pickaxe",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/tools_of_the_gods/models/item/primal_wooden_tools_pickaxe.json",
+          "src/main/java/net/mcreator/toolsofthegods/item/PrimalWoodenToolsPickaxeItem.java"
+        ]
+      }
+    },
+    {
+      "name": "PrimalWoodenToolsAxe",
+      "type": "tool",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "primal_wooden_tools_axe",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/tools_of_the_gods/models/item/primal_wooden_tools_axe.json",
+          "src/main/java/net/mcreator/toolsofthegods/item/PrimalWoodenToolsAxeItem.java"
+        ]
+      }
+    },
+    {
+      "name": "PrimalWoodenToolsSword",
+      "type": "tool",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "primal_wooden_tools_sword",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/toolsofthegods/item/PrimalWoodenToolsSwordItem.java",
+          "src/main/resources/assets/tools_of_the_gods/models/item/primal_wooden_tools_sword.json"
+        ]
+      }
+    },
+    {
+      "name": "PrimalWoodenToolsShovel",
+      "type": "tool",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "primal_wooden_tools_shovel",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/tools_of_the_gods/models/item/primal_wooden_tools_shovel.json",
+          "src/main/java/net/mcreator/toolsofthegods/item/PrimalWoodenToolsShovelItem.java"
+        ]
+      }
+    },
+    {
+      "name": "PrimalWoodenToolsHoe",
+      "type": "tool",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "primal_wooden_tools_hoe",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/tools_of_the_gods/models/item/primal_wooden_tools_hoe.json",
+          "src/main/java/net/mcreator/toolsofthegods/item/PrimalWoodenToolsHoeItem.java"
+        ]
+      }
+    },
+    {
+      "name": "PrimalWoodenToolsPickaxeRecipe",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "primal_wooden_tools_pickaxe_recipe",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/tools_of_the_gods/recipes/primal_wooden_tools_pickaxe_recipe.json"
+        ]
+      }
+    },
+    {
+      "name": "PrimalWoodenToolsAxeRecipe",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "primal_wooden_tools_axe_recipe",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/tools_of_the_gods/recipes/primal_wooden_tools_axe_recipe.json"
+        ]
+      }
+    },
+    {
+      "name": "PrimalWoodenToolsSwordRecipe",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "primal_wooden_tools_sword_recipe",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/tools_of_the_gods/recipes/primal_wooden_tools_sword_recipe.json"
+        ]
+      }
+    },
+    {
+      "name": "PrimalWoodenToolsShovelRecipe",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "primal_wooden_tools_shovel_recipe",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/tools_of_the_gods/recipes/primal_wooden_tools_shovel_recipe.json"
+        ]
+      }
+    },
+    {
+      "name": "PrimalWoodenToolsHoeRecipe",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "primal_wooden_tools_hoe_recipe",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/tools_of_the_gods/recipes/primal_wooden_tools_hoe_recipe.json"
+        ]
+      }
+    },
+    {
+      "name": "PrimalWoodenToolsPickaxeItemIsCraftedsmelted",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "primal_wooden_tools_pickaxe_item_is_craftedsmelted",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/toolsofthegods/procedures/PrimalWoodenToolsPickaxeItemIsCraftedsmeltedProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "itemstack",
+            "type": "itemstack"
+          }
+        ]
+      }
+    },
+    {
+      "name": "PrimalWoodenToolsPickaxeBlockDestroyedWithTool",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "primal_wooden_tools_pickaxe_block_destroyed_with_tool",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/toolsofthegods/procedures/PrimalWoodenToolsPickaxeBlockDestroyedWithToolProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "itemstack",
+            "type": "itemstack"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
+    },
+    {
+      "name": "PrimalWoodenToolsPickaxeSpecialInformation",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "primal_wooden_tools_pickaxe_special_information",
+      "metadata": {
+        "return_type": "string",
+        "files": [
+          "src/main/java/net/mcreator/toolsofthegods/procedures/PrimalWoodenToolsPickaxeSpecialInformationProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "itemstack",
+            "type": "itemstack"
+          }
+        ]
+      }
+    },
+    {
+      "name": "PrimalWoodenToolsPickaxeSpecialInformation2",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "primal_wooden_tools_pickaxe_special_information_2",
+      "metadata": {
+        "return_type": "string",
+        "files": [
+          "src/main/java/net/mcreator/toolsofthegods/procedures/PrimalWoodenToolsPickaxeSpecialInformation2Procedure.java"
+        ],
+        "dependencies": []
+      }
+    },
+    {
+      "name": "CompletedPrimalWoodenPickaxe",
+      "type": "tool",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "completed_primal_wooden_pickaxe",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/tools_of_the_gods/models/item/completed_primal_wooden_pickaxe.json",
+          "src/main/java/net/mcreator/toolsofthegods/item/CompletedPrimalWoodenPickaxeItem.java"
+        ]
+      }
+    },
+    {
+      "name": "PrimalWoodenToolsPickaxeToolInInventoryTick",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "primal_wooden_tools_pickaxe_tool_in_inventory_tick",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/toolsofthegods/procedures/PrimalWoodenToolsPickaxeToolInInventoryTickProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      }
+    },
+    {
+      "name": "CrudeStonepickaxe",
+      "type": "tool",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "crude_stonepickaxe",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/toolsofthegods/item/CrudeStonepickaxeItem.java",
+          "src/main/resources/assets/tools_of_the_gods/models/item/crude_stonepickaxe.json"
+        ]
+      }
+    },
+    {
+      "name": "Compressedcobble",
+      "type": "block",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "compressedcobble",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/tools_of_the_gods/models/item/compressedcobble.json",
+          "src/main/resources/data/tools_of_the_gods/loot_tables/blocks/compressedcobble.json",
+          "src/main/resources/assets/tools_of_the_gods/models/block/compressedcobble.json",
+          "src/main/resources/assets/tools_of_the_gods/blockstates/compressedcobble.json",
+          "src/main/java/net/mcreator/toolsofthegods/block/CompressedcobbleBlock.java"
+        ]
+      }
+    },
+    {
+      "name": "Compressedcobblecraft",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "compressedcobblecraft",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/tools_of_the_gods/recipes/compressedcobblecraft.json"
+        ]
+      }
+    },
+    {
+      "name": "Crudestonepickaxerecipe",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "crudestonepickaxerecipe",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/tools_of_the_gods/recipes/crudestonepickaxerecipe.json"
+        ]
+      }
+    },
+    {
+      "name": "CrudeStonepickaxeItemIsCraftedsmelted",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "crude_stonepickaxe_item_is_craftedsmelted",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/toolsofthegods/procedures/CrudeStonepickaxeItemIsCraftedsmeltedProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "itemstack",
+            "type": "itemstack"
+          }
+        ]
+      }
+    }
+  ],
+  "variable_elements": [],
+  "sound_elements": [],
+  "tag_elements": {
+    "ITEMS:minecraft:pickaxes": [
+      "~CUSTOM:CrudeStonepickaxe",
+      "~CUSTOM:CompletedPrimalWoodenPickaxe",
+      "~CUSTOM:PrimalWoodenToolsPickaxe"
+    ],
+    "ITEMS:minecraft:axes": [
+      "~CUSTOM:PrimalWoodenToolsAxe"
+    ],
+    "ITEMS:minecraft:swords": [
+      "~CUSTOM:PrimalWoodenToolsSword"
+    ],
+    "ITEMS:minecraft:hoes": [
+      "~CUSTOM:PrimalWoodenToolsHoe"
+    ],
+    "ITEMS:minecraft:shovels": [
+      "~CUSTOM:PrimalWoodenToolsShovel"
+    ]
+  },
+  "tab_element_order": {},
+  "language_map": {
+    "en_us": {
+      "item.tools_of_the_gods.crude_stonepickaxe": "Crude Wooden Pickaxe",
+      "item.tools_of_the_gods.primal_wooden_tools_pickaxe": "Primal Wooden Pickaxe",
+      "item.tools_of_the_gods.primal_wooden_tools_axe": "PrimalWoodenTools Axe",
+      "item.tools_of_the_gods.primal_wooden_tools_hoe": "PrimalWoodenTools Hoe",
+      "block.tools_of_the_gods.compressedcobble": "Compressed cobble",
+      "item.tools_of_the_gods.primal_wooden_tools_sword": "PrimalWoodenTools Sword",
+      "item.tools_of_the_gods.primal_wooden_tools_shovel": "PrimalWoodenTools Shovel",
+      "item.tools_of_the_gods.completed_primal_wooden_pickaxe": "Primal Wooden Pickaxe"
+    }
+  },
+  "foldersRoot": {
+    "name": "~",
+    "children": []
+  },
+  "workspaceSettings": {
+    "modid": "tools_of_the_gods",
+    "modName": "Tools of the Gods",
+    "version": "1.0.0",
+    "author": "simon, MCreator",
+    "websiteURL": "https://mcreator.net",
+    "license": "Not specified",
+    "serverSideOnly": false,
+    "requiredMods": [],
+    "dependencies": [],
+    "dependants": [],
+    "mcreatorDependencies": [],
+    "currentGenerator": "forge-1.20.1",
+    "modElementsPackage": "net.mcreator.toolsofthegods"
+  },
+  "mcreatorVersion": 202400334715
+}

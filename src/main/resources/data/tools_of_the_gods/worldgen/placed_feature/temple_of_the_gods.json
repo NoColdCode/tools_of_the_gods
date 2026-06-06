@@ -1,0 +1,19 @@
+{
+  "feature": "tools_of_the_gods:temple_of_the_gods",
+  "placement": [
+    {
+      "type": "minecraft:rarity_filter",
+      "chance": 240
+    },
+    {
+      "type": "minecraft:in_square"
+    },
+    {
+      "type": "minecraft:heightmap",
+      "heightmap": "WORLD_SURFACE_WG"
+    },
+    {
+      "type": "minecraft:biome"
+    }
+  ]
+}

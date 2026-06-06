@@ -1,0 +1,16 @@
+{
+  "name": "First Steps",
+  "category": "tools_of_the_gods:intro",
+  "icon": "tools_of_the_gods:pickaxe_of_the_gods",
+  "sortnum": 1,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "Craft any $(item)Primal$() tool from planks and a vanilla wooden tool. Each tool levels through use.$(br2)At level 10, 20, 30… tier-upgrade with $(l:progression/gems)gems$() ($(#55FF55)Shift+Right-click$()).$(br2)Tools reach $(#55FF55)Tier 9$(). Bow caps at Tier 4 (level 50)."
+    },
+    {
+      "type": "patchouli:text",
+      "text": "Armor pieces level independently — same tier system but T1 uses $(item)8 Chains$() instead of cobblestone.$(br2)Bind traits once you have open slots. See $(l:intro/tiers)Tiers & Slots$() and $(l:traits/smithing_table)Trait Smithing$()."
+    }
+  ]
+}

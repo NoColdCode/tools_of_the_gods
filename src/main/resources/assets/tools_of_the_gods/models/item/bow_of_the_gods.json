@@ -1,0 +1,38 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "tools_of_the_gods:item/wbow"
+  },
+  "overrides": [
+    {
+      "predicate": {
+        "tools_of_the_gods:tier": 0.0
+      },
+      "model": "tools_of_the_gods:item/bow_of_the_gods_tier0"
+    },
+    {
+      "predicate": {
+        "tools_of_the_gods:tier": 0.25
+      },
+      "model": "tools_of_the_gods:item/bow_of_the_gods_tier1"
+    },
+    {
+      "predicate": {
+        "tools_of_the_gods:tier": 0.5
+      },
+      "model": "tools_of_the_gods:item/bow_of_the_gods_tier2"
+    },
+    {
+      "predicate": {
+        "tools_of_the_gods:tier": 0.75
+      },
+      "model": "tools_of_the_gods:item/bow_of_the_gods_tier3"
+    },
+    {
+      "predicate": {
+        "tools_of_the_gods:tier": 1.0
+      },
+      "model": "tools_of_the_gods:item/bow_of_the_gods_tier4"
+    }
+  ]
+}

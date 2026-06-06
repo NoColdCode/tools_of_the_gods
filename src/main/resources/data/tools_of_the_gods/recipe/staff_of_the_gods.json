@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "pattern": [" a", "b ", "c "],
+  "key": {
+    "a": { "item": "minecraft:blaze_rod" },
+    "b": { "item": "tools_of_the_gods:white_gem" },
+    "c": { "item": "minecraft:stick" }
+  },
+  "result": { "id": "tools_of_the_gods:staff_of_the_gods", "count": 1 }
+}

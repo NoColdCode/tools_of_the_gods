@@ -1,0 +1,25 @@
+{
+  "name": "Trait Smithing Table",
+  "category": "tools_of_the_gods:traits",
+  "icon": "tools_of_the_gods:trait_smithing_table",
+  "read_by_default": true,
+  "sortnum": 0,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "Craft: $(item)Iron Ingots$() around a $(item)Plank$() (3×3). Right-click the block to open the UI.$(br2)Place your TOG item in slot 1 and one binding ingredient in slot 2, then press Apply.$(br2)Rank upgrades use the $(#55FFFF)same ingredient$() again (e.g. Redstone Block → Speedy I → II → III)."
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "tools_of_the_gods:trait_smithing_table"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "$(#FFD700)Trait slots by tier$()$(br)T0: 0 · T1–2: 1 · T3–4: 2 · T5: 3 · T6: 4 · T7: 4 · T8: 5 · T9: 6$(br2)$(item)Modifiable$() (Diamond) adds +1 slot at 0 slot cost.$(br2)Remove a random trait: hold $(item)Trait Remover$() in offhand and Shift+Right-click the tool."
+    },
+    {
+      "type": "patchouli:text",
+      "text": "$(#FFD700)Toggle traits$() — Shift+Right-click while holding the tool:$(br2)$(li) Silky II — toggle Silk Touch$(br2)$(li) Autosmelt II — toggle autosmelt$(br2)$(li) Broad Touch II — cycle area size / tree-fell mode"
+    }
+  ]
+}

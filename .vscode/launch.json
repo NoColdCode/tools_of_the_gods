@@ -1,0 +1,49 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "java",
+      "request": "launch",
+      "name": "Client",
+      "presentation": {
+        "group": "Mod Development - tools_of_the_gods",
+        "order": 0
+      },
+      "projectName": "tools_of_the_gods",
+      "mainClass": "net.neoforged.devlaunch.Main",
+      "args": [
+        "@C:\\Users\\simon\\Documents\\Code\\tools_of_the_gods\\build\\moddev\\clientRunProgramArgs.txt"
+      ],
+      "vmArgs": [
+        "@C:\\Users\\simon\\Documents\\Code\\tools_of_the_gods\\build\\moddev\\clientRunVmArgs.txt",
+        "-Dfml.modFolders\u003dmcreator%%C:\\Users\\simon\\Documents\\Code\\tools_of_the_gods\\bin\\main"
+      ],
+      "cwd": "${workspaceFolder}\\run",
+      "env": {},
+      "console": "internalConsole",
+      "shortenCommandLine": "none"
+    },
+    {
+      "type": "java",
+      "request": "launch",
+      "name": "Server",
+      "presentation": {
+        "group": "Mod Development - tools_of_the_gods",
+        "order": 1
+      },
+      "projectName": "tools_of_the_gods",
+      "mainClass": "net.neoforged.devlaunch.Main",
+      "args": [
+        "@C:\\Users\\simon\\Documents\\Code\\tools_of_the_gods\\build\\moddev\\serverRunProgramArgs.txt"
+      ],
+      "vmArgs": [
+        "@C:\\Users\\simon\\Documents\\Code\\tools_of_the_gods\\build\\moddev\\serverRunVmArgs.txt",
+        "-Dfml.modFolders\u003dmcreator%%C:\\Users\\simon\\Documents\\Code\\tools_of_the_gods\\bin\\main"
+      ],
+      "cwd": "${workspaceFolder}\\run",
+      "env": {},
+      "console": "internalConsole",
+      "shortenCommandLine": "none"
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "parent": "tools_of_the_gods:root_of_the_gods",
+  "display": {
+    "icon": {
+      "id": "tools_of_the_gods:crude_stonepickaxe"
+    },
+    "title": {
+      "translate": "adv.tools_of_the_gods.crude_awakening.title"
+    },
+    "description": {
+      "translate": "adv.tools_of_the_gods.crude_awakening.desc"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "has_crude": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "tools_of_the_gods:crude_stonepickaxe"
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

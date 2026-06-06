@@ -1,0 +1,21 @@
+{
+  "name": "Armor Traits",
+  "category": "tools_of_the_gods:traits",
+  "icon": "tools_of_the_gods:chestplate_of_the_gods",
+  "read_by_default": true,
+  "sortnum": 8,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "$(#FFD700)Armor-only traits$()$(br2)$(#55FFFF)Thorns I$() (1 slot) — $(item)Cactus$()$(br)Reflects 2 melee damage to attackers when you take a hit.$(br2)$(#55FFFF)Thorns II$() (2 slots) — $(item)Cactus$() again$(br)Reflects 5 damage.$(br2)$(#55FFFF)Fireward I$() (1 slot) — $(item)Magma Cream$()$(br)Fire Resistance I while worn.$(br2)$(#55FFFF)Fireward II$() (2 slots) — $(item)Blaze Rod$()$(br)Fire Resistance II while worn."
+    },
+    {
+      "type": "patchouli:text",
+      "text": "$(#FFD700)Also allowed on armor$()$(br2)$(#55FFFF)Scholar I/II$() — $(item)Lapis Lazuli$() — +10% / +20% XP.$(br2)$(#55FFFF)Soulbound$() — $(item)Nether Star$() — kept on death.$(br2)$(#55FFFF)Modifiable$() — $(item)Diamond$() — +1 trait slot.$(br2)$(#55FFFF)Sustaining I–III$() — $(item)Bread$() — passive food (loot penalty).$(br2)$(#55FFFF)Bulwark I$() — $(item)Brick$() — Resistance I while worn.$(br2)$(#55FFFF)Swiftstep I$() — $(item)Feather$() — Speed I while worn.$(br2)$(#55FFFF)Purifying I$() — $(item)Glowstone Dust$() — clears debuffs periodically."
+    },
+    {
+      "type": "patchouli:text",
+      "text": "$(#FF5555)Not allowed on armor:$() Silky, Broad Touch, Momentum, Moonlit, Autosmelt, Sharpy, Titan, Ranger, Poison, Freezy, Magnetic, Scavenger, Bountiful, Speedy, Frenzy."
+    }
+  ]
+}

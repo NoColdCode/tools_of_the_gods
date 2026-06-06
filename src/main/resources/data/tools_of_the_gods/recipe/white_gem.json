@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "III",
+    "IGI",
+    "III"
+  ],
+  "key": {
+    "I": { "item": "minecraft:iron_ingot" },
+    "G": { "item": "minecraft:glass_pane" }
+  },
+  "result": {
+    "id": "tools_of_the_gods:white_gem",
+    "count": 1
+  }
+}

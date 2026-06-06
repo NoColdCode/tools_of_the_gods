@@ -1,0 +1,14 @@
+{
+  "name": "Tools of the Gods",
+  "subtitle": "Core Tools, Armor & Traits",
+  "landing_text": "Welcome, adventurer!$(br2)This guide covers the seven core tools, Armor of the Gods, gem tiers, and every trait you can bind — with exact values and ingredients.$(br2)You receive one copy on first join. Right-click the guide anytime to reopen it.",
+  "version": 1,
+  "creative_tab": "tools_of_the_gods:tools_of_the_gods_tab",
+  "model": "patchouli:book_purple",
+  "book_texture": "patchouli:textures/gui/book_purple.png",
+  "filler_texture": "patchouli:textures/gui/page_filler.png",
+  "crafting_texture": "patchouli:textures/gui/crafting.png",
+  "show_progress": false,
+  "use_blocky_font": false,
+  "use_resource_pack": true
+}

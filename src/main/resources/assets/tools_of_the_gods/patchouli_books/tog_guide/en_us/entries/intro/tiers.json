@@ -1,0 +1,20 @@
+{
+  "name": "Tiers & Slots",
+  "category": "tools_of_the_gods:intro",
+  "icon": "tools_of_the_gods:white_gem",
+  "sortnum": 2,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "$(#FFD700)Tool tier names$()$(br)T0 Primal Wooden$(br)T1 Crude Stone$(br)T2 Hewn Iron$(br)T3 Gilded Gold$(br)T4 Lapis-Touched$(br)T5 Redstone-Forged$(br)T6 Obsidian Runed$(br)T7 Arcane Emerald$(br)T8 Ethereal Diamond$(br)T9 [Tool] of the Gods"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "$(#FFD700)Trait slots by tier$()$(br)T0: 0$(br)T1–2: 1$(br)T3–4: 2$(br)T5: 3$(br)T6: 4$(br)T7: 4$(br)T8: 5$(br)T9: 6$(br2)$(item)Modifiable$() adds +1 slot (0 slot cost)."
+    },
+    {
+      "type": "patchouli:text",
+      "text": "$(#FFD700)Harvest capability$()$(br)T0 Wood · T1 Stone · T2+ Iron · T8+ Diamond$(br2)One-shot ores: T5 coal, T6 stone/copper, T7 deepslate/gold, T8 iron/redstone, T9 diamond."
+    }
+  ]
+}

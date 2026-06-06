@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "EQE",
+    "QPQ",
+    "EQE"
+  ],
+  "key": {
+    "E": { "item": "minecraft:emerald" },
+    "Q": { "item": "minecraft:quartz_block" },
+    "P": { "item": "minecraft:ender_pearl" }
+  },
+  "result": {
+    "id": "tools_of_the_gods:green_gem",
+    "count": 1
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "parent": "item/handheld_rod",
+  "textures": {
+    "layer0": "tools_of_the_gods:item/wfish"
+  },
+  "overrides": [
+    { "predicate": { "tools_of_the_gods:tier": 0.1 }, "model": "tools_of_the_gods:item/fishing_rod_of_the_gods_tier1" },
+    { "predicate": { "tools_of_the_gods:tier": 0.2 }, "model": "tools_of_the_gods:item/fishing_rod_of_the_gods_tier2" },
+    { "predicate": { "tools_of_the_gods:tier": 0.3 }, "model": "tools_of_the_gods:item/fishing_rod_of_the_gods_tier3" },
+    { "predicate": { "tools_of_the_gods:tier": 0.4 }, "model": "tools_of_the_gods:item/fishing_rod_of_the_gods_tier4" },
+    { "predicate": { "tools_of_the_gods:tier": 0.5 }, "model": "tools_of_the_gods:item/fishing_rod_of_the_gods_tier5" },
+    { "predicate": { "tools_of_the_gods:tier": 0.6 }, "model": "tools_of_the_gods:item/fishing_rod_of_the_gods_tier5" },
+    { "predicate": { "tools_of_the_gods:tier": 0.7 }, "model": "tools_of_the_gods:item/fishing_rod_of_the_gods_tier5" },
+    { "predicate": { "tools_of_the_gods:tier": 0.8 }, "model": "tools_of_the_gods:item/fishing_rod_of_the_gods_tier5" },
+    { "predicate": { "tools_of_the_gods:tier": 0.9 }, "model": "tools_of_the_gods:item/fishing_rod_of_the_gods_tier5" }
+  ]
+}

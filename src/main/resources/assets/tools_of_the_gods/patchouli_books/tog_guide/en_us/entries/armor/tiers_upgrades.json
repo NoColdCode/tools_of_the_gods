@@ -1,0 +1,15 @@
+{
+  "name": "Tiers & Upgrades",
+  "category": "tools_of_the_gods:armor",
+  "icon": "tools_of_the_gods:yellow_gem",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "$(#FFD700)Armor tier names$()$(br)T0 Worn Leather$(br)T1 Rusty Chainmail$(br)T2 Forged Iron$(br)T3 Gilded Leather$(br)T4 Amethyst-Touched$(br)T5 Ruby-Forged$(br)T6 Obsidian Runed$(br)T7 Arcane Emerald$(br)T8 Ethereal Diamond$(br)T9 Divine (…of the Gods)"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "$(#FFD700)Upgrade materials$() at level 10, 20, 30…$(br)$(#55FFFF)Armor T1:$() $(item)8 Chains$() — not cobblestone!$(br)T2–T9: same gems as tools (White → Universe).$(br2)$(#FFD700)Tools T1:$() $(item)32 Cobblestone$(). See $(l:progression/gems)Gem Progression$()."
+    }
+  ]
+}

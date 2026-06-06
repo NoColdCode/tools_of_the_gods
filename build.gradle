@@ -1,0 +1,66 @@
+plugins {
+    id 'eclipse'
+    id 'net.neoforged.moddev' version '2.0.107'
+}
+
+version = '1.3.0'
+base.archivesName = "modid"
+
+java.toolchain.languageVersion = JavaLanguageVersion.of(21)
+
+neoForge {
+    version = "21.1.190"
+
+    runs {
+        client {
+            client()
+
+            // Work around intermittent Temurin 21 C2 JIT crash (jvm.dll) during runClient.
+            // This keeps dev client stable by limiting JIT to C1.
+            jvmArgument '-XX:TieredStopAtLevel=1'
+
+            def mcreatorJvmOptions = System.getenv('MCREATOR_JVM_OPTIONS')
+            if (mcreatorJvmOptions) {
+                mcreatorJvmOptions.split("\\s+").findAll { it.trim() }.each { arg ->
+                    jvmArgument(arg)
+                }
+            }
+        }
+        server {
+            server()
+        }
+
+        configureEach {
+            systemProperty 'forge.logging.markers', 'REGISTRIES'
+            logLevel = org.slf4j.event.Level.DEBUG
+        }
+    }
+
+    mods {
+        mcreator {
+            sourceSet sourceSets.main
+        }
+    }
+}
+
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = 'UTF-8' // Use the UTF-8 charset for Java compilation
+}
+
+apply from: 'mcreator.gradle'
+
+repositories {
+    maven { url = 'https://maven.blamejared.com' }
+}
+
+dependencies {
+    compileOnly "vazkii.patchouli:Patchouli:1.21-87-NEOFORGE:api"
+    runtimeOnly "vazkii.patchouli:Patchouli:1.21-87-NEOFORGE"
+}
+
+tasks.register('copyPatchouliToRunMods', Copy) {
+    description = 'Copies Patchouli jar into run/mods for local testing'
+    from(configurations.runtimeClasspath.filter { it.name.startsWith('Patchouli') })
+    into layout.projectDirectory.dir('run/mods')
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+}

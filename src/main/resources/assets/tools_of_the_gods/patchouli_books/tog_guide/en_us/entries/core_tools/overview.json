@@ -1,0 +1,32 @@
+{
+  "name": "Core Tools",
+  "category": "tools_of_the_gods:core_tools",
+  "icon": "tools_of_the_gods:pickaxe_of_the_gods",
+  "sortnum": 0,
+  "read_by_default": true,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "$(#FFD700)Seven core tools$() — all use the same XP, tier, and trait systems. $(#55FF55)Shift+Right-click$() when $(#FF5555)NEEDS UPGRADE$() to tier up.$(br2)$(item)Pickaxe$() — ores and stone. Traits: $(l:traits/pickaxe_traits)Pickaxe$().$(br2)$(item)Hammer$() — heavy mining, 3×3 with Broad Touch. $(l:traits/hammer_traits)Hammer$().$(br2)$(item)Axe$() — wood and combat. $(l:traits/axe_traits)Axe$().$(br2)$(item)Shovel$() — dirt, sand, gravel. $(l:traits/shovel_traits)Shovel$().$(br2)$(item)Hoe$() — crops and tilling. $(l:traits/hoe_traits)Hoe$().$(br2)$(item)Sword$() — melee combat. $(l:traits/sword_traits)Sword$().$(br2)$(item)Bow$() — ranged combat. $(l:traits/bow_traits)Bow$()."
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "tools_of_the_gods:pickaxe_of_the_gods",
+      "recipe2": "tools_of_the_gods:hammer_of_the_gods"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "tools_of_the_gods:axe_of_the_gods",
+      "recipe2": "tools_of_the_gods:shovel_of_the_gods"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "tools_of_the_gods:hoe_of_the_gods",
+      "recipe2": "tools_of_the_gods:sword_of_the_gods"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "tools_of_the_gods:bow_of_the_gods"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "_fv": 79,
+  "_type": "tool",
+  "definition": {
+    "toolType": "Pickaxe",
+    "renderType": 0,
+    "blockingRenderType": 0,
+    "texture": "crudestonepickaxe1",
+    "customModelName": "Normal",
+    "blockingModelName": "Normal blocking",
+    "name": "Crude Wooden Pickaxe",
+    "specialInformation": {
+      "fixedValue": [],
+      "name": "PrimalWoodenToolsPickaxeSpecialInformation"
+    },
+    "creativeTabs": [
+      {
+        "value": "TOOLS"
+      }
+    ],
+    "efficiency": 1.8,
+    "attackSpeed": 1.0,
+    "enchantability": 3,
+    "damageVsEntity": 1.0,
+    "usageCount": 0,
+    "glowCondition": {
+      "fixedValue": false
+    },
+    "repairItems": [],
+    "immuneToFire": true,
+    "blockDropsTier": "WOOD",
+    "blocksAffected": [],
+    "stayInGridWhenCrafting": false,
+    "damageOnCrafting": false,
+    "onCrafted": {
+      "name": "PrimalWoodenToolsPickaxeItemIsCraftedsmelted"
+    },
+    "onItemInInventoryTick": {
+      "name": "PrimalWoodenToolsPickaxeToolInInventoryTick"
+    },
+    "onBlockDestroyedWithTool": {
+      "name": "PrimalWoodenToolsPickaxeBlockDestroyedWithTool"
+    }
+  }
+}

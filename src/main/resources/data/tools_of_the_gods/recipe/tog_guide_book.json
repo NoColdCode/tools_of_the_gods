@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    { "item": "minecraft:book" },
+    { "item": "minecraft:paper" }
+  ],
+  "result": {
+    "id": "tools_of_the_gods:tog_guide_book",
+    "count": 1
+  }
+}

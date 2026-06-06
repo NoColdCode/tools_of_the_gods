@@ -1,0 +1,37 @@
+{
+  "name": "Gem Progression",
+  "category": "tools_of_the_gods:progression",
+  "icon": "tools_of_the_gods:universe_gem",
+  "read_by_default": true,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "$(#55FF55)Shift+Right-click$() when $(#FF5555)NEEDS UPGRADE$():$(br2)$(#FFD700)Tools T1:$() 32 Cobblestone$(br)T2: White Gem$(br)T3: Yellow Gem$(br)T4: Purple Gem$(br)T5: Red Gem$(br)T6: Black Gem$(br)T7: Green Gem$(br)T8: Blue Gem$(br)T9: Universe Gem$(br2)$(#FFD700)Armor T1:$() $(item)8 Chains$()$(br)T2–T9: same gems as tools."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Gem Crafts",
+      "text": "$(item)White Gem:$() iron ingots around glass pane.$(br2)$(item)Yellow Gem:$() gold ingots + nuggets + clock.$(br2)$(item)Purple Gem:$() amethyst + glass + lapis.$(br2)$(item)Red Gem:$() glowstone + redstone block + fire charge.$(br2)$(item)Black Gem:$() obsidian + lava bucket + diamond.$(br2)$(item)Green Gem:$() emeralds + quartz blocks around ender pearl.$(br2)$(item)Blue Gem:$() diamonds around ender eye.$(br2)$(item)Universe Gem:$() all seven gems + end crystal (see JEI for layout)."
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "tools_of_the_gods:white_gem",
+      "recipe2": "tools_of_the_gods:yellow_gem"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "tools_of_the_gods:purple_gem",
+      "recipe2": "tools_of_the_gods:red_gem"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "tools_of_the_gods:black_gem",
+      "recipe2": "tools_of_the_gods:green_gem"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "tools_of_the_gods:blue_gem",
+      "recipe2": "tools_of_the_gods:universe_gem"
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "name": "Hammer Traits",
+  "category": "tools_of_the_gods:traits",
+  "icon": "tools_of_the_gods:hammer_of_the_gods",
+  "read_by_default": true,
+  "sortnum": 2,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "Hammer accepts the same mining traits as Pickaxe, plus larger Broad Touch areas.$(br2)$(#55FFFF)Broad Touch I$() (2 slots) — $(item)Slime Ball$()$(br)5×5 mining (not 3×3).$(br2)$(#55FFFF)Broad Touch II$() (4 slots) — same item$(br)3×3 / 5×5 / 7×7 / 9×9 modes."
+    },
+    {
+      "type": "patchouli:text",
+      "text": "All $(l:traits/pickaxe_traits)Pickaxe mining traits$() work on hammer: Speedy, Silky, Autosmelt, Momentum, Moonlit, Frenzy, Scholar, Magnetic, Scavenger, Bountiful, Sustaining, Purifying, Swiftstep, Bulwark, Soulbound, Modifiable.$(br2)$(#FF5555)Not allowed:$() Poison, Freezy, Sharpy, Titan, Ranger."
+    }
+  ]
+}

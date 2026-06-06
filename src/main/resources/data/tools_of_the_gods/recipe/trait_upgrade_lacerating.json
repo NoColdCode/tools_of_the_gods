@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "DTD",
+    "TST",
+    "DTD"
+  ],
+  "key": {
+    "D": {
+      "item": "minecraft:diamond_sword"
+    },
+    "T": {
+      "item": "minecraft:totem_of_undying"
+    },
+    "S": {
+      "item": "minecraft:nether_star"
+    }
+  },
+  "result": {
+    "item": "tools_of_the_gods:trait_upgrade_lacerating",
+    "count": 1
+  }
+}

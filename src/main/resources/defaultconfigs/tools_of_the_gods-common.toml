@@ -1,0 +1,18 @@
+[progression]
+	xpCurveBase = 50.0
+	xpExponentBase = 0.15
+	xpExponentPerLevel = 0.01
+	xpRequiredMultiplier = 1.0
+	globalXpGainMultiplier = 1.0
+	miningXpGainMultiplier = 1.0
+	combatXpGainMultiplier = 1.0
+
+[shield]
+	blockChanceMin = 0.30
+	blockChanceMax = 0.95
+
+[armor]
+	wearXpInterval = 400
+
+[client]
+	tierParticlesEnabled = true

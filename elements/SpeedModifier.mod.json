@@ -1,0 +1,18 @@
+{
+  "_fv": 79,
+  "_type": "potioneffect",
+  "definition": {
+    "effectName": "Speed Modifier",
+    "icon": "speedmodifier",
+    "color": {
+      "value": -6711040,
+      "falpha": 0.0
+    },
+    "isInstant": true,
+    "mobEffectCategory": "BENEFICIAL",
+    "renderStatusInInventory": false,
+    "renderStatusInHUD": false,
+    "isCuredbyHoney": false,
+    "modifiers": []
+  }
+}

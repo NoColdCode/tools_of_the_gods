@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [" N ", "EHE", " D "],
+  "key": {
+    "N": { "item": "minecraft:nether_star" },
+    "E": { "item": "minecraft:echo_shard" },
+    "H": { "item": "minecraft:honey_bottle" },
+    "D": { "item": "minecraft:diamond_block" }
+  },
+  "result": { "id": "tools_of_the_gods:elixir_xp_apotheosis", "count": 1 }
+}

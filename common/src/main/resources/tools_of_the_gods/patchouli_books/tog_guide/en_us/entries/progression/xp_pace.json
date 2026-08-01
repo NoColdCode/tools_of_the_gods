@@ -1,0 +1,17 @@
+{
+  "name": "XP Pace by Tool",
+  "category": "tools_of_the_gods:progression",
+  "icon": "tools_of_the_gods:sword_of_the_gods",
+  "read_by_default": true,
+  "sortnum": 2,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "Some tools need less XP per level than the default curve:$(br2)$(li) $(item)Sword$() — required XP ÷ $(#55FFFF)1.2$()$(br2)$(li) $(item)Bow$() — required XP ÷ $(#55FFFF)1.2$()$(br2)$(li) $(item)Hoe$() — required XP ÷ $(#55FFFF)5$()$(br2)$(li) $(item)Shield$() — required XP ÷ $(#55FFFF)4$()$(br2)Pickaxe, hammer, axe, shovel, armor, and other tools use the default pace."
+    },
+    {
+      "type": "patchouli:text",
+      "text": "Server admins can change these divisors in $(#55FFFF)config/tools_of_the_gods-common.toml$() under $()progression$():$(br2)swordXpPaceDivisor$(br2)hoeXpPaceDivisor$(br2)bowXpPaceDivisor$(br2)shieldXpPaceDivisor$(br2)The $(#55FFFF)Scholar$() trait still adds +10% / +20% XP on top of these values."
+    }
+  ]
+}

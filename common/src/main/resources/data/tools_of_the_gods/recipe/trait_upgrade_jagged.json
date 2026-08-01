@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "FFF",
+    "FDF",
+    "FFF"
+  ],
+  "key": {
+    "F": {
+      "item": "minecraft:flint"
+    },
+    "D": {
+      "item": "minecraft:iron_sword"
+    }
+  },
+  "result": {
+    "item": "tools_of_the_gods:trait_upgrade_jagged",
+    "count": 1
+  }
+}

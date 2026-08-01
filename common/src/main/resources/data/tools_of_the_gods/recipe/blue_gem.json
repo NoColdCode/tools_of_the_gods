@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "DDD",
+    "DED",
+    "DDD"
+  ],
+  "key": {
+    "D": { "item": "minecraft:diamond" },
+    "E": { "item": "minecraft:ender_eye" }
+  },
+  "result": {
+    "id": "tools_of_the_gods:blue_gem",
+    "count": 1
+  }
+}

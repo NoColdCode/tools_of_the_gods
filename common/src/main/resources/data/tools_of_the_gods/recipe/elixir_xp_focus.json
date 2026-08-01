@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [" R ", "LHL", " G "],
+  "key": {
+    "R": { "item": "minecraft:redstone" },
+    "L": { "item": "minecraft:lapis_lazuli" },
+    "H": { "item": "minecraft:honey_bottle" },
+    "G": { "item": "minecraft:glowstone_dust" }
+  },
+  "result": { "id": "tools_of_the_gods:elixir_xp_focus", "count": 1 }
+}

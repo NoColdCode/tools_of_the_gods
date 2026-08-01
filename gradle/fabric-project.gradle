@@ -1,0 +1,197 @@
+/**
+ * Shared Fabric module build. Requires:
+ * - plugins { id 'fabric-loom' ... } or id 'net.fabricmc.fabric-loom' in the subproject build.gradle
+ * - ext.togFabricVersion = '<minecraft version>' before apply
+ */
+import java.util.Properties
+
+def versionProps = new Properties()
+def versionFile = rootProject.file("gradle/fabric-versions/${togFabricVersion}.properties")
+if (!versionFile.exists()) {
+	throw new GradleException("Missing Fabric version config: ${versionFile}")
+}
+versionFile.withInputStream { versionProps.load(it) }
+
+def mcVersion = versionProps.getProperty('minecraft_version')
+def javaVersion = Integer.parseInt(versionProps.getProperty('java_version'))
+def loaderVersion = versionProps.getProperty('loader_version')
+def fabricApiVersion = versionProps.getProperty('fabric_api_version')
+def fabricApiModId = versionProps.getProperty('fabric_api_mod_id', 'fabric-api')
+def mappingsType = versionProps.getProperty('mappings_type', 'official')
+def yarnMappings = versionProps.getProperty('yarn_mappings', '')
+def patchouliVersion = versionProps.getProperty('patchouli_version', '')
+def useModDeps = versionProps.getProperty('use_mod_deps', 'true') == 'true'
+def mergeCommon = versionProps.getProperty('merge_common_sources', 'true') == 'true'
+def commonProject = versionProps.getProperty('common_project', 'common')
+def glueSourceDir = versionProps.getProperty('glue_source_dir', "fabric/${togFabricVersion}/src/main/java")
+
+group = 'net.mcreator.toolsofthegods'
+version = rootProject.mod_version
+base.archivesName = "tools_of_the_gods-fabric-${mcVersion}"
+
+java {
+	toolchain {
+		languageVersion = JavaLanguageVersion.of(javaVersion)
+	}
+}
+
+repositories {
+	maven { url = 'https://maven.blamejared.com' }
+}
+
+// Older MC + Loom 1.11 can pull a remapped fabric-loader from modRuntimeOnly (e.g. Patchouli).
+configurations {
+	modRuntimeOnly {
+		exclude group: 'net.fabricmc', module: 'fabric-loader'
+	}
+	modCompileOnly {
+		exclude group: 'net.fabricmc', module: 'fabric-loader'
+	}
+}
+
+dependencies {
+	minecraft "com.mojang:minecraft:${mcVersion}"
+	if (mappingsType == 'yarn') {
+		mappings "net.fabricmc:yarn:${yarnMappings}:v2"
+	} else if (mappingsType != 'none') {
+		mappings loom.officialMojangMappings()
+	}
+
+	def loaderDep = "net.fabricmc:fabric-loader:${loaderVersion}"
+	def apiDep = "net.fabricmc.fabric-api:fabric-api:${fabricApiVersion}"
+
+	if (useModDeps) {
+		modImplementation loaderDep
+		if (fabricApiVersion) {
+			modImplementation apiDep
+		}
+		if (patchouliVersion) {
+			def patchouliDep = { String cfg ->
+				project.dependencies."$cfg"("vazkii.patchouli:Patchouli:${patchouliVersion}") {
+					exclude group: 'net.fabricmc', module: 'fabric-loader'
+				}
+			}
+			patchouliDep('modCompileOnly')
+			patchouliDep('modRuntimeOnly')
+		}
+	} else {
+		implementation loaderDep
+		if (fabricApiVersion) {
+			implementation apiDep
+		}
+		if (patchouliVersion) {
+			compileOnly "vazkii.patchouli:Patchouli:${patchouliVersion}"
+			runtimeOnly "vazkii.patchouli:Patchouli:${patchouliVersion}"
+		}
+	}
+}
+
+def commonJavaRoot = project(":${commonProject}").file('src/main/java').absolutePath.replace('\\', '/')
+def sharedGlueDir = rootProject.file(glueSourceDir)
+
+sourceSets {
+	main {
+		java {
+			srcDir 'src/main/java'
+			srcDir sharedGlueDir
+			if (mergeCommon) {
+				srcDir project(":${commonProject}").file('src/main/java')
+				exclude { fileTreeElement ->
+					String path = fileTreeElement.file.absolutePath.replace('\\', '/')
+					if (!path.startsWith(commonJavaRoot)) {
+						return false
+					}
+					String rel = path.substring(commonJavaRoot.length()).replaceFirst('^/+', '')
+					rel == 'net/mcreator/toolsofthegods/ToolsOfTheGodsMod.java'
+						|| (rel.startsWith('net/mcreator/toolsofthegods/client/')
+							&& rel != 'net/mcreator/toolsofthegods/client/TraitSmithingTableScreen.java')
+						|| rel == 'net/mcreator/toolsofthegods/config/ToolsOfTheGodsCommonConfig.java'
+						|| rel == 'net/mcreator/toolsofthegods/network/ActivatePickaxePowerMessage.java'
+						|| rel == 'net/mcreator/toolsofthegods/network/OpenGuideBookPayload.java'
+						|| rel == 'net/mcreator/toolsofthegods/network/SetUltimateToolModePayload.java'
+						|| rel == 'net/mcreator/toolsofthegods/network/SetStaffSpellPayload.java'
+						|| rel.startsWith('net/mcreator/toolsofthegods/integration/')
+						|| rel == 'net/mcreator/toolsofthegods/util/GuideBookOpener.java'
+						|| rel == 'net/mcreator/toolsofthegods/util/TogEntityInventoryHelper.java'
+				}
+			}
+		}
+	}
+}
+
+def togModId = rootProject.mod_id
+
+loom {
+	mods {
+		"${togModId}" {
+			sourceSet sourceSets.main
+		}
+	}
+	runs {
+		client {
+			client()
+			ideConfigGenerated true
+		}
+	}
+}
+
+tasks.withType(JavaCompile).configureEach {
+	options.encoding = 'UTF-8'
+}
+
+def modVersion = project.version
+
+processResources {
+	duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+	if (mergeCommon) {
+		dependsOn ':common:processResources'
+		from(project(':common').sourceSets.main.output.resourcesDir)
+		if (mcVersion.compareTo('1.21') < 0) {
+			filesMatching('data/**/recipe/*.json') {
+				filter { String line ->
+					String trimmed = line.trim()
+					if (trimmed.startsWith('"count"')) {
+						return null
+					}
+					if (trimmed.contains('"id"')) {
+						return line.replace('"id":', '"item":')
+					}
+					return line
+				}
+			}
+		}
+	}
+	inputs.property 'version', modVersion
+	inputs.property 'minecraft_version', mcVersion
+	inputs.property 'java_version', javaVersion.toString()
+	inputs.property 'fabric_api_mod_id', fabricApiModId
+	filesMatching('fabric.mod.json') {
+		expand(
+			version: modVersion,
+			minecraft_version: mcVersion,
+			java_version: javaVersion,
+			fabric_api_mod_id: fabricApiModId
+		)
+	}
+	filesMatching('tools_of_the_gods.mixins.json') {
+		expand java_version: "JAVA_${javaVersion}"
+	}
+}
+
+if (patchouliVersion) {
+	tasks.register('copyPatchouliToRunMods', Copy) {
+		description = "Copies Patchouli jar into run/mods for Fabric ${mcVersion} dev"
+		def runtimeCfg = useModDeps ? configurations.modRuntimeOnly : configurations.runtimeOnly
+		dependsOn runtimeCfg
+		from(runtimeCfg.filter { it.name.startsWith('Patchouli') })
+		into layout.projectDirectory.dir('run/mods')
+		duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+	}
+	tasks.named('runClient').configure {
+		dependsOn 'copyPatchouliToRunMods'
+	}
+}
+
+tasks.named('jar', Jar) {
+	duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+}

@@ -1,0 +1,17 @@
+{
+  "name": "Ultimate Tool Traits",
+  "category": "tools_of_the_gods:traits",
+  "icon": "tools_of_the_gods:ultimate_tool_of_the_gods",
+  "read_by_default": true,
+  "sortnum": 15,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "$(#FFD700)Ultimate-only trait$()$(br2)$(#55FFFF)Adaptive I$() (2 slots) — $(item)Compass$()$(br)Automatically picks the best tool mode for what you target — sword for mobs, pickaxe for stone, shovel for dirt, fishing rod in water, etc.$(br2)The Ultimate Tool can bind $(#55FFFF)every trait$() in the mod (8 base slots at T9, +Modifiable)."
+    },
+    {
+      "type": "patchouli:text",
+      "text": "$(#FFD700)Toggle traits on Ultimate$()$(br2)Shift+Right-click while holding:$(br2)$(li) Silky II — toggle Silk Touch$(br2)$(li) Autosmelt II — toggle autosmelt$(br2)$(li) Broad Touch II — cycle mining area / tree-fell size$(br2)Hold $(#55FFFF)G$() (default) to open the mode wheel when Adaptive is not bound."
+    }
+  ]
+}

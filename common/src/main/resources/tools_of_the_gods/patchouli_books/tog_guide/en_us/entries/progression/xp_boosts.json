@@ -1,0 +1,36 @@
+{
+  "name": "XP Boosts",
+  "category": "tools_of_the_gods:progression",
+  "icon": "tools_of_the_gods:elixir_xp_focus",
+  "read_by_default": true,
+  "sortnum": 3,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "$(#FFD700)XP Infusions$() — hold a TOG tool in the $(#55FFFF)offhand$(), use the infusion in the main hand. Flat XP, ignores Insight/Scholar/elixirs.$(br2)$(#55FFFF)Minor$() — $(item)+100$() XP$(br)$(#55FFFF)Major$() — $(item)+500$() XP$(br)$(#55FFFF)Grand$() — $(item)+1000$() XP"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "tools_of_the_gods:xp_infusion_minor",
+      "recipe2": "tools_of_the_gods:xp_infusion_major"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "tools_of_the_gods:xp_infusion_grand"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "$(#FFD700)XP Elixirs$() — drink for a temporary XP multiplier on all TOG gains (best elixir wins, does not stack with itself).$(br2)$(#55FFFF)Divine Focus$() — ×2$(br)$(#55FFFF)Divine Surge$() — ×5$(br)$(#55FFFF)Divine Rapture$() — ×10$(br)$(#55FFFF)Divine Apotheosis$() — ×100$(br2)Stacks with $(l:traits/insight_traits)Insight$() and Scholar (multiplicative)."
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "tools_of_the_gods:elixir_xp_focus",
+      "recipe2": "tools_of_the_gods:elixir_xp_surge"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "tools_of_the_gods:elixir_xp_rapture",
+      "recipe2": "tools_of_the_gods:elixir_xp_apotheosis"
+    }
+  ]
+}

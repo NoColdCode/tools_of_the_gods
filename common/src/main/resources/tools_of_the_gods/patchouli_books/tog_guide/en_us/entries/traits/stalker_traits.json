@@ -1,0 +1,13 @@
+{
+  "name": "Stalker",
+  "category": "tools_of_the_gods:traits",
+  "icon": "minecraft:rabbit_foot",
+  "read_by_default": true,
+  "sortnum": 20,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "$(#55FFFF)Stalker I$() (1 slot) — $(item)Rabbit's Foot$()$(br)+20% projectile damage while sneaking.$(br2)$(#55FFFF)Stalker II$() (2 slots) — $(item)Spider Eye$()$(br)+40% projectile damage while sneaking.$(br2)$(#FFD700)Tools:$() bow, crossbow."
+    }
+  ]
+}

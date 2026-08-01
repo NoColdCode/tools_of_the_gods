@@ -1,0 +1,6 @@
+{
+  "mod_id": "tools_of_the_gods",
+  "loader": "neoforge",
+  "minecraft": "1.21.1",
+  "resources_namespace": "tools_of_the_gods"
+}

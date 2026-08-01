@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [" D ", "EBE", " L "],
+  "key": {
+    "D": { "item": "minecraft:diamond" },
+    "E": { "item": "minecraft:emerald" },
+    "B": { "item": "minecraft:glass_bottle" },
+    "L": { "item": "minecraft:lapis_block" }
+  },
+  "result": { "id": "tools_of_the_gods:xp_infusion_grand", "count": 1 }
+}

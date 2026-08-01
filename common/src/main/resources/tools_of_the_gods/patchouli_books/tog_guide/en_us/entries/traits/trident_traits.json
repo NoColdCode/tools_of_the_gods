@@ -1,0 +1,17 @@
+{
+  "name": "Trident Traits",
+  "category": "tools_of_the_gods:traits",
+  "icon": "tools_of_the_gods:trident_of_the_gods",
+  "read_by_default": true,
+  "sortnum": 12,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "$(#FFD700)Trident traits$()$(br2)$(#55FFFF)Returning I$() (1 slot) — $(item)Ender Pearl$()$(br)Thrown trident returns faster.$(br2)$(#55FFFF)Riptide I$() (1 slot) — $(item)Prismarine Shard$()$(br)+50% thrown damage in rain or water.$(br2)$(#55FFFF)Impaler I$() (1 slot) — $(item)Prismarine Crystals$()$(br)+2 trident damage.$(br2)$(#55FFFF)Impaler II$() (2 slots) — same item$(br)+4 trident damage."
+    },
+    {
+      "type": "patchouli:text",
+      "text": "$(#FFD700)Also on trident$()$(br2)Poison, Freezy, Frenzy, Titan, Scholar, Soulbound, Modifiable, Sustaining, Bountiful, Scavenger, Purifying, Swiftstep, Bulwark.$(br2)$(#FF5555)Not allowed:$() Silky, Momentum, Broad Touch, Moonlit, Ranger, Sharpy (sword/axe only), Magnetic."
+    }
+  ]
+}

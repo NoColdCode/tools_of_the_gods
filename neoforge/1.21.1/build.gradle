@@ -1,0 +1,84 @@
+plugins {
+	id 'eclipse'
+	id 'net.neoforged.moddev' version '2.0.107'
+}
+
+group = 'net.mcreator.toolsofthegods'
+
+version = mod_version
+base.archivesName = 'tools_of_the_gods'
+
+java.toolchain.languageVersion = JavaLanguageVersion.of(21)
+
+repositories {
+	maven { url = 'https://maven.blamejared.com' }
+}
+
+dependencies {
+	implementation project(':common')
+	jarJar project(':common')
+
+	compileOnly "vazkii.patchouli:Patchouli:${patchouli_version}:api"
+	runtimeOnly "vazkii.patchouli:Patchouli:${patchouli_version}"
+}
+
+sourceSets {
+	main {
+		resources {
+			srcDir 'src/main/resources'
+		}
+	}
+}
+
+processResources {
+	duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+	dependsOn ':common:processResources'
+	from(project(':common').sourceSets.main.output.resourcesDir)
+}
+
+neoForge {
+	version = neoforge_version
+
+	runs {
+		client {
+			client()
+			jvmArgument '-XX:TieredStopAtLevel=1'
+			def mcreatorJvmOptions = System.getenv('MCREATOR_JVM_OPTIONS')
+			if (mcreatorJvmOptions) {
+				mcreatorJvmOptions.split("\\s+").findAll { it.trim() }.each { arg ->
+					jvmArgument(arg)
+				}
+			}
+		}
+		server {
+			server()
+		}
+
+		configureEach {
+			systemProperty 'forge.logging.markers', 'REGISTRIES'
+			logLevel = org.slf4j.event.Level.DEBUG
+		}
+	}
+
+	mods {
+		tools_of_the_gods {
+			sourceSet sourceSets.main
+		}
+	}
+}
+
+tasks.withType(JavaCompile).configureEach {
+	options.encoding = 'UTF-8'
+}
+
+tasks.named('jar', Jar) {
+	from(project(':common').sourceSets.main.output)
+	duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+}
+
+tasks.register('copyPatchouliToRunMods', Copy) {
+	description = 'Copies Patchouli jar into run/mods for local testing'
+	from(configurations.runtimeClasspath.filter { it.name.startsWith('Patchouli') })
+	into layout.projectDirectory.dir('run/mods')
+	duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+}

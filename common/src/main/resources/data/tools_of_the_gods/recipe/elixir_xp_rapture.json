@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [" G ", "BHB", " D "],
+  "key": {
+    "G": { "item": "minecraft:gold_block" },
+    "B": { "item": "minecraft:blaze_powder" },
+    "H": { "item": "minecraft:honey_bottle" },
+    "D": { "item": "minecraft:diamond" }
+  },
+  "result": { "id": "tools_of_the_gods:elixir_xp_rapture", "count": 1 }
+}

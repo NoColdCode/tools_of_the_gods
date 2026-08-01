@@ -1,0 +1,38 @@
+/**
+ * Lightweight common sources module (no NeoForge). Resources are processed for Fabric embedding.
+ * Apply from common-<version>/build.gradle after setting ext.common_java_version if needed.
+ */
+apply plugin: 'java-library'
+
+group = 'net.mcreator.toolsofthegods'
+
+def commonJava = project.findProperty('common_java_version')?.toString()?.isInteger()
+	? project.property('common_java_version').toString().toInteger()
+	: 21
+
+java {
+	toolchain {
+		languageVersion = JavaLanguageVersion.of(commonJava)
+	}
+}
+
+// Java-only backport modules: assets/data live in :common (see gradle/fabric-project.gradle).
+sourceSets {
+	main {
+		resources {
+			srcDirs = []
+		}
+	}
+}
+
+tasks.withType(JavaCompile).configureEach {
+	options.encoding = 'UTF-8'
+}
+
+tasks.named('processResources').configure {
+	enabled = false
+}
+
+tasks.named('jar', Jar) {
+	enabled = false
+}

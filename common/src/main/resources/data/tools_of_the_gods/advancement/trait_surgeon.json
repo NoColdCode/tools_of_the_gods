@@ -1,0 +1,32 @@
+{
+  "parent": "tools_of_the_gods:orb_scholar",
+  "display": {
+    "icon": {
+      "id": "tools_of_the_gods:trait_remover"
+    },
+    "title": {
+      "translate": "adv.tools_of_the_gods.trait_surgeon.title"
+    },
+    "description": {
+      "translate": "adv.tools_of_the_gods.trait_surgeon.desc"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "has_trait_remover": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "tools_of_the_gods:trait_remover"
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

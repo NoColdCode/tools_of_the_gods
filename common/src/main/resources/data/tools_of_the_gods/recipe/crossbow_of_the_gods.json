@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "pattern": ["ab", "cd", " b"],
+  "key": {
+    "a": { "item": "minecraft:crossbow" },
+    "b": { "tag": "minecraft:planks" },
+    "c": { "item": "minecraft:stick" },
+    "d": { "item": "tools_of_the_gods:white_gem" }
+  },
+  "result": { "id": "tools_of_the_gods:crossbow_of_the_gods", "count": 1 }
+}

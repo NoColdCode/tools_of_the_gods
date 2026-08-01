@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [" L ", " B ", " R "],
+  "key": {
+    "L": { "item": "minecraft:lapis_lazuli" },
+    "B": { "item": "minecraft:glass_bottle" },
+    "R": { "item": "minecraft:redstone" }
+  },
+  "result": { "id": "tools_of_the_gods:xp_infusion_minor", "count": 1 }
+}

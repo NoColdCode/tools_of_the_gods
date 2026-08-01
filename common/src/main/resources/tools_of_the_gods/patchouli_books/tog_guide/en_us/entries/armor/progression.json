@@ -1,0 +1,15 @@
+{
+  "name": "Defense Scaling",
+  "category": "tools_of_the_gods:armor",
+  "icon": "tools_of_the_gods:helmet_of_the_gods",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "$(#FFD700)Fractional armor$() — values like 0.5, 1.2, 2.8 (not just whole numbers). Split by leather ratios: helm 1/7, chest 3/7, legs 2/7, boots 1/7.$(br2)Full set: $(#AAAAAA)0.5 + (level ÷ 100) × 34.5$()$(br)Level 1 ≈ 0.8 total · Level 50 ≈ 17.8 · Level 100 = $(#55FF55)35.0$()"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "$(#FFD700)Late-game extras$()$(br)Toughness: from level 70+ (0.5 → 3.0 by level 100).$(br)Knockback resist: from level 80+ (5% → 10%).$(br2)No full-set bonus — only per-piece stats and traits."
+    }
+  ]
+}

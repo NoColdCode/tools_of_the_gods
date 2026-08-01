@@ -1,0 +1,11 @@
+plugins {
+	id 'fabric-loom' version '1.11.8'
+	id 'eclipse'
+}
+
+ext.togFabricVersion = '1.19.2'
+apply from: rootProject.file('gradle/fabric-project.gradle')
+
+loom {
+	accessWidenerPath = file('src/main/resources/tools_of_the_gods.accesswidener')
+}

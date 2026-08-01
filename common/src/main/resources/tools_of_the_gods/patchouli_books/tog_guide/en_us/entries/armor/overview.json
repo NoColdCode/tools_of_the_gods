@@ -1,0 +1,25 @@
+{
+  "name": "Armor Overview",
+  "category": "tools_of_the_gods:armor",
+  "icon": "tools_of_the_gods:chestplate_of_the_gods",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "Four independent pieces — helmet, chestplate, leggings, boots — each with its own level (0–100) and tier (0–9). Craft each piece from $(item)Leather$() surrounding the matching $(item)Leather Armor$() piece (see recipes on next pages).$(br2)XP: passive while worn, faster when taking damage. $(#55FF55)Shift+Right-click$() any piece to tier-upgrade when $(#FF5555)NEEDS UPGRADE$() shows."
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "tools_of_the_gods:helmet_of_the_gods",
+      "recipe2": "tools_of_the_gods:chestplate_of_the_gods"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "tools_of_the_gods:leggings_of_the_gods",
+      "recipe2": "tools_of_the_gods:boots_of_the_gods"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "Each piece contributes $(#55FFFF)fractional armor points$() that stack on the armor bar. Worn look changes per tier (leather → chain → iron → gold → gems).$(br2)Read $(l:armor/progression)Defense Scaling$(), $(l:armor/tiers_upgrades)Tiers & Upgrades$(), and $(l:traits/armor_traits)Armor Traits$()."
+    }
+  ]
+}

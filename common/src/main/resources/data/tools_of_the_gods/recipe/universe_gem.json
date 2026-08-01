@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "WYP",
+    "REB",
+    "G L"
+  ],
+  "key": {
+    "W": { "item": "tools_of_the_gods:white_gem" },
+    "Y": { "item": "tools_of_the_gods:yellow_gem" },
+    "P": { "item": "tools_of_the_gods:purple_gem" },
+    "R": { "item": "tools_of_the_gods:red_gem" },
+    "E": { "item": "minecraft:end_crystal" },
+    "B": { "item": "tools_of_the_gods:black_gem" },
+    "G": { "item": "tools_of_the_gods:green_gem" },
+    "L": { "item": "tools_of_the_gods:blue_gem" }
+  },
+  "result": {
+    "id": "tools_of_the_gods:universe_gem",
+    "count": 1
+  }
+}

@@ -1,0 +1,7 @@
+plugins {
+	id 'eclipse'
+	id 'net.neoforged.moddev.legacyforge' version '2.0.141'
+}
+
+ext.togForgeVersion = '1.20.1'
+apply from: rootProject.file('gradle/forge-project.gradle')

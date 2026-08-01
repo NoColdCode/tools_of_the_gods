@@ -1,0 +1,21 @@
+{
+  "name": "Sword Traits",
+  "category": "tools_of_the_gods:traits",
+  "icon": "tools_of_the_gods:sword_of_the_gods",
+  "read_by_default": true,
+  "sortnum": 6,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "$(#FFD700)Combat traits$()$(br2)$(#55FFFF)Poison I/II$() — $(item)Fermented Spider Eye$()$(br)I: Poison 5s, -20% atk speed (1 slot)$(br)II: Poison 10s, -30% atk speed (2 slots)$(br2)$(#55FFFF)Freezy I/II$() — $(item)Ice$()$(br)I: Slowness I 10s, -0.5 dmg (1 slot)$(br)II: Slowness II 15s, -1 dmg (2 slots)$(br2)$(#55FFFF)Hemorrhage I/II$() — $(item)Cobweb$()$(br)Wither on hit 3s / 6s.$(br2)$(#55FFFF)Searing I/II$() — $(item)Fire Charge$()$(br)Sets on fire 3s / 6s.$(br2)$(#55FFFF)Vitality I/II$() — $(item)Golden Apple$() / $(item)Enchanted Golden Apple$()$(br)Heal 1 / 2 hearts on kill."
+    },
+    {
+      "type": "patchouli:text",
+      "text": "$(#55FFFF)Sharpy I–III$() — $(item)Iron Ingot$()$(br)+2 / +4 / +6 flat dmg; heavy atk/mine speed penalty.$(br2)$(#55FFFF)Titan I/II$() — $(item)Anvil$()$(br)+2 / +4 flat dmg; milder speed penalty than Sharpy.$(br2)$(#55FFFF)Frenzy I–III$() — $(item)Blaze Powder$()$(br)+10/18/28% atk speed, +6/12/18% mine speed, -4/8/12% atk dmg.$(br2)See $(l:traits/rime_traits)Rime$(), $(l:traits/executioner_traits)Executioner$(), and $(l:traits/reaving_traits)Reaving$()."
+    },
+    {
+      "type": "patchouli:text",
+      "text": "$(#FFD700)Also on sword$()$(br2)Speedy (Redstone Block), Scholar (Lapis), Sustaining (Bread), Soulbound (Nether Star), Modifiable (Diamond), Bountiful (Emerald), Scavenger (Hopper), Purifying (Glowstone Dust), Swiftstep (Feather), Bulwark (Brick).$(br2)$(#FF5555)Not allowed:$() Silky, Momentum, Broad Touch, Moonlit, Autosmelt, Magnetic, Ranger."
+    }
+  ]
+}

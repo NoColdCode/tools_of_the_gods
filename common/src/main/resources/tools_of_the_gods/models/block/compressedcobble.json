@@ -1,0 +1,13 @@
+{
+  "parent": "block/cube",
+  "textures": {
+    "down": "tools_of_the_gods:block/compressedcobble",
+    "up": "tools_of_the_gods:block/compressedcobble",
+    "north": "tools_of_the_gods:block/compressedcobble",
+    "east": "tools_of_the_gods:block/compressedcobble",
+    "south": "tools_of_the_gods:block/compressedcobble",
+    "west": "tools_of_the_gods:block/compressedcobble",
+    "particle": "tools_of_the_gods:block/compressedcobble"
+  },
+  "render_type": "solid"
+}

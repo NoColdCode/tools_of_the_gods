@@ -1,0 +1,23 @@
+{
+  "parent": "tools_of_the_gods:orb_scholar",
+  "display": {
+    "icon": { "id": "tools_of_the_gods:white_gem" },
+    "title": { "translate": "adv.tools_of_the_gods.gem_collector.title" },
+    "description": { "translate": "adv.tools_of_the_gods.gem_collector.desc" },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "white": { "trigger": "minecraft:inventory_changed", "conditions": { "items": [{ "items": ["tools_of_the_gods:white_gem"] }] } } },
+    "yellow": { "trigger": "minecraft:inventory_changed", "conditions": { "items": [{ "items": ["tools_of_the_gods:yellow_gem"] }] } } },
+    "purple": { "trigger": "minecraft:inventory_changed", "conditions": { "items": [{ "items": ["tools_of_the_gods:purple_gem"] }] } } },
+    "red": { "trigger": "minecraft:inventory_changed", "conditions": { "items": [{ "items": ["tools_of_the_gods:red_gem"] }] } } },
+    "black": { "trigger": "minecraft:inventory_changed", "conditions": { "items": [{ "items": ["tools_of_the_gods:black_gem"] }] } } },
+    "green": { "trigger": "minecraft:inventory_changed", "conditions": { "items": [{ "items": ["tools_of_the_gods:green_gem"] }] } } },
+    "blue": { "trigger": "minecraft:inventory_changed", "conditions": { "items": [{ "items": ["tools_of_the_gods:blue_gem"] }] } } },
+    "universe": { "trigger": "minecraft:inventory_changed", "conditions": { "items": [{ "items": ["tools_of_the_gods:universe_gem"] }] } } }
+  },
+  "requirements": [["white"], ["yellow"], ["purple"], ["red"], ["black"], ["green"], ["blue"], ["universe"]]
+}

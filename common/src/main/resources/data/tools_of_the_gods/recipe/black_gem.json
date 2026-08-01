@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "aba",
+    "bcb",
+    "aba"
+  ],
+  "key": {
+    "a": { "item": "minecraft:obsidian" },
+    "b": { "item": "minecraft:lava_bucket" },
+    "c": { "item": "minecraft:diamond" }
+  },
+  "result": {
+    "id": "tools_of_the_gods:black_gem",
+    "count": 1
+  }
+}

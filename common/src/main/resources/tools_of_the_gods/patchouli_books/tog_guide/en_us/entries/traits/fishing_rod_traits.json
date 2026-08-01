@@ -1,0 +1,17 @@
+{
+  "name": "Fishing Rod Traits",
+  "category": "tools_of_the_gods:traits",
+  "icon": "tools_of_the_gods:fishing_rod_of_the_gods",
+  "read_by_default": true,
+  "sortnum": 10,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "$(#FFD700)Rod-only traits$()$(br2)$(#55FFFF)Angler I$() (1 slot) — $(item)Nautilus Shell$()$(br)Better fishing loot, +10% fishing XP.$(br2)$(#55FFFF)Angler II$() (2 slots) — $(item)Heart of the Sea$() upgrade$(br)Much better loot, +20% fishing XP.$(br2)$(#55FFFF)Reel I$() (1 slot) — $(item)Cod$()$(br)Fish bite ~40% faster."
+    },
+    {
+      "type": "patchouli:text",
+      "text": "$(#FFD700)Also on fishing rod$()$(br2)Scholar, Soulbound, Modifiable, Sustaining, Bountiful, Scavenger, Purifying, Swiftstep, Bulwark — same general traits as tools.$(br2)$(#FF5555)Not allowed:$() mining traits, combat-on-hit traits (Poison, Freezy, Sharpy, Titan, Ranger, etc.)."
+    }
+  ]
+}

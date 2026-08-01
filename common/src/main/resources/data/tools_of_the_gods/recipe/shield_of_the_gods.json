@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "pattern": [
+    " S ",
+    "SIS",
+    " S "
+  ],
+  "key": {
+    "S": {
+      "item": "minecraft:stick"
+    },
+    "I": {
+      "item": "minecraft:shield"
+    }
+  },
+  "result": {
+    "id": "tools_of_the_gods:shield_of_the_gods",
+    "count": 1
+  }
+}

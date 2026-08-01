@@ -1,0 +1,17 @@
+{
+  "parent": "tools_of_the_gods:trait_surgeon",
+  "display": {
+    "icon": { "id": "tools_of_the_gods:trait_smithing_table" },
+    "title": { "translate": "adv.tools_of_the_gods.first_trait.title" },
+    "description": { "translate": "adv.tools_of_the_gods.first_trait.desc" },
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "trait_bound": {
+      "trigger": "minecraft:impossible"
+    }
+  }
+}

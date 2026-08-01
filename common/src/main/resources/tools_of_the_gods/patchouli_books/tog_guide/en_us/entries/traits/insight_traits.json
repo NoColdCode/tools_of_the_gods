@@ -1,0 +1,13 @@
+{
+  "name": "Insight",
+  "category": "tools_of_the_gods:traits",
+  "icon": "minecraft:enchanting_table",
+  "read_by_default": true,
+  "sortnum": 24,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "$(#55FFFF)Insight$() multiplies all XP this tool earns. Bindable on $(#FFD700)every$() TOG item.$(br2)$(#55FFFF)Insight I$() (1 slot) — $(item)Book$()$(br)×1.5 tool XP.$(br2)$(#55FFFF)Insight II$() (2 slots) — $(item)Bookshelf$()$(br)×2 tool XP.$(br2)$(#55FFFF)Insight III$() (3 slots) — $(item)Enchanting Table$()$(br)×3 tool XP.$(br2)Stacks with Scholar and temporary XP elixirs."
+    }
+  ]
+}

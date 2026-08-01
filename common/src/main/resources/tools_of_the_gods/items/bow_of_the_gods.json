@@ -1,0 +1,48 @@
+﻿{
+"model":  {
+"fallback":  {
+"model":  "tools_of_the_gods:item/bow_of_the_gods",
+"type":  "minecraft:model"
+},
+"type":  "minecraft:range_dispatch",
+"property":  "tools_of_the_gods:tier",
+"entries":  [
+{
+"model":  {
+"model":  "tools_of_the_gods:item/bow_of_the_gods_tier0",
+"type":  "minecraft:model"
+},
+"threshold":  0
+},
+{
+"model":  {
+"model":  "tools_of_the_gods:item/bow_of_the_gods_tier1",
+"type":  "minecraft:model"
+},
+"threshold":  0.25
+},
+{
+"model":  {
+"model":  "tools_of_the_gods:item/bow_of_the_gods_tier2",
+"type":  "minecraft:model"
+},
+"threshold":  0.5
+},
+{
+"model":  {
+"model":  "tools_of_the_gods:item/bow_of_the_gods_tier3",
+"type":  "minecraft:model"
+},
+"threshold":  0.75
+},
+{
+"model":  {
+"model":  "tools_of_the_gods:item/bow_of_the_gods_tier4",
+"type":  "minecraft:model"
+},
+"threshold":  1
+}
+],
+"scale":  1
+}
+}

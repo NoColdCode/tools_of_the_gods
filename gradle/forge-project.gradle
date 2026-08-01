@@ -1,0 +1,116 @@
+/**
+ * Shared Forge module build (ModDevGradle legacyforge). Requires:
+ * - plugins { id 'net.neoforged.moddev.legacyforge' version '...' } in subproject build.gradle
+ * - ext.togForgeVersion = '<minecraft version>' before apply
+ */
+import java.util.Properties
+
+def versionProps = new Properties()
+def versionFile = rootProject.file("gradle/forge-versions/${togForgeVersion}.properties")
+if (!versionFile.exists()) {
+	throw new GradleException("Missing Forge version config: ${versionFile}")
+}
+versionFile.withInputStream { versionProps.load(it) }
+
+def mcVersion = versionProps.getProperty('minecraft_version')
+def javaVersion = Integer.parseInt(versionProps.getProperty('java_version'))
+def forgeVersion = versionProps.getProperty('forge_version')
+def patchouliVersion = versionProps.getProperty('patchouli_version', '')
+def mergeCommon = versionProps.getProperty('merge_common_sources', 'true') == 'true'
+def commonProject = versionProps.getProperty('common_project')
+def glueSourceDir = versionProps.getProperty('glue_source_dir', "forge/${togForgeVersion}/src/main/java")
+
+group = 'net.mcreator.toolsofthegods'
+version = rootProject.mod_version
+base.archivesName = "tools_of_the_gods-forge-${mcVersion}"
+
+java.toolchain.languageVersion = JavaLanguageVersion.of(javaVersion)
+
+repositories {
+	maven { url = 'https://maven.blamejared.com' }
+	maven { url = 'https://maven.minecraftforge.net/' }
+}
+
+if (mcVersion == '1.18.2') {
+	configurations.configureEach {
+		resolutionStrategy {
+			// Forge 1.18.2 pulls log4j-api 2.19.x via 2.11.+ ranges while core stays on 2.17.x.
+			force 'org.apache.logging.log4j:log4j-api:2.17.1'
+		}
+	}
+}
+
+apply from: rootProject.file('gradle/loader-common.gradle')
+togApplyForgeSourceSets(project, glueSourceDir, commonProject, mergeCommon)
+togApplyCommonResources(project, 'common', mcVersion)
+
+dependencies {
+	if (!mergeCommon) {
+		implementation project(":${commonProject}")
+	}
+
+	if (patchouliVersion) {
+		compileOnly "vazkii.patchouli:Patchouli:${patchouliVersion}:api"
+		runtimeOnly "vazkii.patchouli:Patchouli:${patchouliVersion}"
+	}
+}
+
+legacyForge {
+	version = "${mcVersion}-${forgeVersion}"
+
+	runs {
+		client {
+			client()
+			jvmArgument '-XX:TieredStopAtLevel=1'
+			jvmArgument '-XX:ReservedCodeCacheSize=256m'
+		}
+		server {
+			server()
+		}
+
+		configureEach {
+			systemProperty 'forge.logging.markers', 'REGISTRIES'
+			logLevel = org.slf4j.event.Level.DEBUG
+		}
+	}
+
+	mods {
+		tools_of_the_gods {
+			sourceSet sourceSets.main
+		}
+	}
+}
+
+tasks.withType(JavaCompile).configureEach {
+	options.encoding = 'UTF-8'
+}
+
+tasks.named('jar', Jar) {
+	duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+}
+
+def replaceProps = [
+	minecraft_version       : mcVersion,
+	minecraft_version_range : versionProps.getProperty('minecraft_version_range', "[${mcVersion}]"),
+	forge_version           : forgeVersion,
+	forge_version_range     : versionProps.getProperty('forge_version_range', "[${forgeVersion},)"),
+	mod_id                  : rootProject.mod_id,
+	mod_name                : rootProject.mod_name,
+	mod_version             : rootProject.mod_version,
+	loader_version_range    : versionProps.getProperty('loader_version_range', '[47,)'),
+]
+
+processResources {
+	inputs.properties replaceProps
+	filesMatching('META-INF/mods.toml') {
+		expand replaceProps
+	}
+}
+
+tasks.register('copyPatchouliToRunMods', Copy) {
+	description = 'Copies Patchouli jar into run/mods for local testing'
+	onlyIf { patchouliVersion }
+	from(configurations.runtimeClasspath.filter { it.name.startsWith('Patchouli') })
+	into layout.projectDirectory.dir('run/mods')
+	duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+}

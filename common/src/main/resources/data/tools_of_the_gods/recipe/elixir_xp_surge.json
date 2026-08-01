@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [" G ", "BHB", " L "],
+  "key": {
+    "G": { "item": "minecraft:gold_ingot" },
+    "B": { "item": "minecraft:blaze_powder" },
+    "H": { "item": "minecraft:honey_bottle" },
+    "L": { "item": "minecraft:lapis_lazuli" }
+  },
+  "result": { "id": "tools_of_the_gods:elixir_xp_surge", "count": 1 }
+}

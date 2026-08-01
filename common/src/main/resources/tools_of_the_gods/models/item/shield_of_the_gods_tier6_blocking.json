@@ -1,0 +1,30 @@
+{
+  "parent": "tools_of_the_gods:item/shield_of_the_gods_tier6",
+  "display": {
+    "thirdperson_righthand": {
+      "rotation": [45, 155, 0],
+      "translation": [-3.49, 11, -2],
+      "scale": [1, 1, 1]
+    },
+    "thirdperson_lefthand": {
+      "rotation": [45, 155, 0],
+      "translation": [11.51, 7, 2.5],
+      "scale": [1, 1, 1]
+    },
+    "firstperson_righthand": {
+      "rotation": [5, -90, 10],
+      "translation": [-1, 4, 0],
+      "scale": [1, 1, 1]
+    },
+    "firstperson_lefthand": {
+      "rotation": [5, 90, -10],
+      "translation": [1, 4, 0],
+      "scale": [1, 1, 1]
+    },
+    "gui": {
+      "rotation": [0, -90, 0],
+      "translation": [0, 0, 0],
+      "scale": [1, 1, 1]
+    }
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "name": "Reaving",
+  "category": "tools_of_the_gods:traits",
+  "icon": "minecraft:experience_bottle",
+  "read_by_default": true,
+  "sortnum": 19,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "$(#55FFFF)Reaving I$() (1 slot) — $(item)Bottle o' Enchanting$()$(br)+20% XP from kills.$(br2)$(#55FFFF)Reaving II$() (2 slots) — $(item)Echo Shard$()$(br)+40% XP from kills.$(br2)$(#FFD700)Tools:$() sword, axe, bow."
+    }
+  ]
+}

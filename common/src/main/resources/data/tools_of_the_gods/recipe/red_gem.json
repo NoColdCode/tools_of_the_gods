@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "aba",
+    "bcb",
+    "aba"
+  ],
+  "key": {
+    "a": { "item": "minecraft:glowstone_dust" },
+    "b": { "item": "minecraft:redstone_block" },
+    "c": { "item": "minecraft:fire_charge" }
+  },
+  "result": {
+    "id": "tools_of_the_gods:red_gem",
+    "count": 1
+  }
+}

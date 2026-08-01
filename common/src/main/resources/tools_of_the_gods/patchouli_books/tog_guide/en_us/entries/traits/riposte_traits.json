@@ -1,0 +1,13 @@
+{
+  "name": "Riposte",
+  "category": "tools_of_the_gods:traits",
+  "icon": "minecraft:gold_ingot",
+  "read_by_default": true,
+  "sortnum": 21,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "$(#55FFFF)Riposte I$() (1 slot) — $(item)Gold Nugget$()$(br)Reflects 3 damage on a successful block.$(br2)$(#55FFFF)Riposte II$() (2 slots) — $(item)Gold Ingot$()$(br)Reflects 6 damage on a successful block.$(br2)$(#FFD700)Tools:$() shield only."
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "name": "Executioner",
+  "category": "tools_of_the_gods:traits",
+  "icon": "minecraft:wither_skeleton_skull",
+  "read_by_default": true,
+  "sortnum": 18,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "$(#55FFFF)Executioner I$() (1 slot) — $(item)Bone$()$(br)+25% damage when the target is below 35% HP.$(br2)$(#55FFFF)Executioner II$() (2 slots) — $(item)Wither Skeleton Skull$()$(br)+50% damage when the target is below 50% HP.$(br2)$(#FFD700)Tools:$() sword, axe, spear."
+    }
+  ]
+}

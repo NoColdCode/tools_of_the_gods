@@ -1,0 +1,116 @@
+/**
+ * Shared source/resource wiring for Fabric, Forge, and NeoForge loader modules.
+ */
+
+ext.togCommonMergeExcludes = { String rel, boolean excludeModClass, boolean excludeIntegration, boolean excludeNetwork, boolean excludeConfig, boolean includeDynamicTextureHandler = true, boolean includeGuideBook = true ->
+	if (excludeModClass && rel == 'net/mcreator/toolsofthegods/ToolsOfTheGodsMod.java') {
+		return true
+	}
+	if (rel.startsWith('net/mcreator/toolsofthegods/client/')) {
+		def allowed = [
+			'net/mcreator/toolsofthegods/client/TraitSmithingTableScreen.java',
+		]
+		if (includeDynamicTextureHandler) {
+			allowed << 'net/mcreator/toolsofthegods/client/DynamicTextureHandler.java'
+		}
+		if (includeGuideBook) {
+			allowed << 'net/mcreator/toolsofthegods/client/GuideBookClient.java'
+			allowed << 'net/mcreator/toolsofthegods/client/TogGuideBookScreen.java'
+		}
+		return !allowed.contains(rel)
+	}
+	return (excludeIntegration && rel.startsWith('net/mcreator/toolsofthegods/integration/'))
+		|| (excludeNetwork && rel.startsWith('net/mcreator/toolsofthegods/network/'))
+		|| (excludeConfig && rel == 'net/mcreator/toolsofthegods/config/ToolsOfTheGodsCommonConfig.java')
+		|| rel == 'net/mcreator/toolsofthegods/util/GuideBookOpener.java'
+		|| rel == 'net/mcreator/toolsofthegods/util/TogEntityInventoryHelper.java'
+}
+
+ext.togApplyMergedCommonJava = { Project p, String commonProject, boolean excludeModClass, boolean excludeIntegration, boolean excludeNetwork, boolean excludeConfig, boolean includeDynamicTextureHandler = true, boolean includeGuideBook = true ->
+	def commonJavaRoot = p.project(":${commonProject}").file('src/main/java').absolutePath.replace('\\', '/')
+	p.sourceSets.main.java {
+		srcDir p.project(":${commonProject}").file('src/main/java')
+		exclude { fileTreeElement ->
+			String path = fileTreeElement.file.absolutePath.replace('\\', '/')
+			if (!path.startsWith(commonJavaRoot)) {
+				return false
+			}
+			String rel = path.substring(commonJavaRoot.length()).replaceFirst('^/+', '')
+			togCommonMergeExcludes(rel, excludeModClass, excludeIntegration, excludeNetwork, excludeConfig, includeDynamicTextureHandler, includeGuideBook)
+		}
+	}
+}
+
+ext.togApplyFabricSourceSets = { Project p, String glueSourceDir, String commonProject, boolean mergeCommon ->
+	def sharedGlueDir = p.rootProject.file(glueSourceDir)
+	p.sourceSets {
+		main {
+			java {
+				srcDir 'src/main/java'
+				srcDir sharedGlueDir
+			}
+		}
+	}
+	if (mergeCommon) {
+		togApplyMergedCommonJava(p, commonProject, true, true, true, true)
+	}
+}
+
+ext.togApplyNeoForgeSourceSets = { Project p, String glueSourceDir, String commonProject, boolean mergeCommon, boolean includeGuideBook = true ->
+	def sharedGlueDir = p.rootProject.file(glueSourceDir)
+	p.sourceSets {
+		main {
+			java {
+				srcDir 'src/main/java'
+				srcDir sharedGlueDir
+			}
+			resources {
+				srcDir 'src/main/resources'
+			}
+		}
+	}
+	if (mergeCommon) {
+		togApplyMergedCommonJava(p, commonProject, false, false, false, false, true, includeGuideBook)
+	}
+}
+
+ext.togApplyForgeSourceSets = { Project p, String glueSourceDir, String commonProject, boolean mergeCommon ->
+	def sharedGlueDir = p.rootProject.file(glueSourceDir)
+	p.sourceSets {
+		main {
+			java {
+				srcDir 'src/main/java'
+				srcDir sharedGlueDir
+			}
+			resources {
+				srcDir 'src/main/resources'
+			}
+		}
+	}
+	if (mergeCommon) {
+		togApplyMergedCommonJava(p, commonProject, true, true, true, true, false, true)
+	}
+}
+
+ext.togApplyCommonResources = { Project p, String commonProject = 'common', String mcVersion = '1.21.1' ->
+	p.processResources {
+		duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+		// Assets live in :common; common-* modules are Java-only backports.
+		dependsOn ':common:processResources'
+		from(p.project(':common').sourceSets.main.output.resourcesDir)
+		if (mcVersion.compareTo('1.21') < 0) {
+			filesMatching('data/**/recipe/*.json') {
+				filter { String line ->
+					String trimmed = line.trim()
+					if (trimmed.startsWith('"count"')) {
+						return null
+					}
+					if (trimmed.contains('"id"')) {
+						return line.replace('"id":', '"item":')
+					}
+					return line
+				}
+			}
+		}
+	}
+}

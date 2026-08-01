@@ -1,0 +1,17 @@
+{
+  "name": "Bow Traits",
+  "category": "tools_of_the_gods:traits",
+  "icon": "tools_of_the_gods:bow_of_the_gods",
+  "read_by_default": true,
+  "sortnum": 7,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "$(#FFD700)Ranged combat$()$(br2)$(#55FFFF)Poison / Freezy$() — same as sword.$(br2)$(#55FFFF)Volley I/II$() — $(item)Paper$()$(br)15% / 30% extra projectile (75% dmg).$(br2)$(#55FFFF)Searing I/II$() — $(item)Fire Charge$()$(br)Flaming arrows 3s / 6s.$(br2)$(#55FFFF)Ranger I$() (1 slot) — $(item)Flint$()$(br)Bow handling bonus, +5% XP.$(br2)$(#55FFFF)Ranger II$() (2 slots) — same item$(br)+10% XP."
+    },
+    {
+      "type": "patchouli:text",
+      "text": "$(#FFD700)Also on bow$()$(br2)Speedy (Redstone Block), Scholar (Lapis), Sustaining (Bread), Soulbound (Nether Star), Modifiable (Diamond), Bountiful (Emerald), Scavenger (Hopper), Purifying (Glowstone Dust), Swiftstep (Feather), Bulwark (Brick).$(br2)See $(l:traits/rime_traits)Rime$(), $(l:traits/reaving_traits)Reaving$(), and $(l:traits/stalker_traits)Stalker$().$(br2)$(#FF5555)Not allowed:$() Silky, Autosmelt, Momentum, Broad Touch, Moonlit, Frenzy, Sharpy, Titan, Magnetic."
+    }
+  ]
+}

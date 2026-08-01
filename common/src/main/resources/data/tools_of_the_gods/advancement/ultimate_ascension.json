@@ -1,0 +1,35 @@
+{
+  "parent": "tools_of_the_gods:universe_attuned",
+  "display": {
+    "icon": {
+      "id": "tools_of_the_gods:ultimate_tool_of_the_gods"
+    },
+    "title": {
+      "translate": "adv.tools_of_the_gods.ultimate_ascension.title"
+    },
+    "description": {
+      "translate": "adv.tools_of_the_gods.ultimate_ascension.desc"
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "has_ultimate": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "tools_of_the_gods:ultimate_tool_of_the_gods"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "rewards": {
+    "experience": 1500
+  }
+}

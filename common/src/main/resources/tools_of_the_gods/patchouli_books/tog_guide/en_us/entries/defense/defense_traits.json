@@ -1,0 +1,21 @@
+{
+  "name": "Defense Traits",
+  "category": "tools_of_the_gods:defense",
+  "icon": "tools_of_the_gods:iron_block",
+  "read_by_default": true,
+  "sortnum": 1,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "$(#FFD700)Shield-only traits$() at the Trait Smithing Table:$(br2)$(#55FFFF)Guardian I$() (1 slot) — $(item)Iron Block$()$(br)+12% block chance, +10% block power.$(br2)$(#55FFFF)Guardian II$() (2 slots) — $(item)Obsidian$() upgrade$(br)+22% block chance, +18% block power.$(br2)$(#55FFFF)Repulse I$() (1 slot) — $(item)Piston$()$(br)Right-click (not while sneaking) sends a knockback wave at nearby foes."
+    },
+    {
+      "type": "patchouli:text",
+      "text": "$(#FFD700)Also allowed on shield$()$(br2)$(#55FFFF)Scholar I/II$() — $(item)Lapis Lazuli$() — +10% / +20% XP.$(br2)$(#55FFFF)Soulbound$() — $(item)Nether Star$() — kept on death.$(br2)$(#55FFFF)Modifiable$() — $(item)Diamond$() — +1 trait slot.$(br2)$(#55FFFF)Sustaining I–III$() — $(item)Bread$() — passive food (loot penalty).$(br2)$(#55FFFF)Bulwark I$() — $(item)Brick$() — Resistance I while held.$(br2)$(#55FFFF)Swiftstep I$() — $(item)Feather$() — Speed I while held.$(br2)$(#55FFFF)Purifying I$() — $(item)Glowstone Dust$() — clears debuffs periodically."
+    },
+    {
+      "type": "patchouli:text",
+      "text": "$(#FF5555)Not allowed on shield:$() Thorns, Fireward (armor-only), Silky, Broad Touch, Momentum, Moonlit, Autosmelt, Sharpy, Titan, Ranger, Poison, Freezy, Magnetic, Scavenger, Bountiful, and other mining / on-hit combat traits.$(br2)Armor-only traits: $(l:traits/armor_traits)Armor Traits$()."
+    }
+  ]
+}

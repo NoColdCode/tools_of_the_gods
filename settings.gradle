@@ -1,11 +1,89 @@
 pluginManagement {
-    repositories {
-        mavenLocal()
-        gradlePluginPortal()
-        maven { url = 'https://maven.neoforged.net/releases' }
-    }
+	repositories {
+		mavenLocal()
+		gradlePluginPortal()
+		maven { url = 'https://maven.neoforged.net/releases' }
+		maven { url = 'https://maven.fabricmc.net/' }
+	}
 }
 
 plugins {
-    id 'org.gradle.toolchains.foojay-resolver-convention' version '1.0.0'
+	id 'org.gradle.toolchains.foojay-resolver-convention' version '1.0.0'
+}
+
+rootProject.name = 'tools_of_the_gods'
+
+// One loader/version per Gradle invocation (fast sync, no plugin clashes).
+// -PtogLoader=fabric -PfabricVersions=1.18.2   (quote -P values in PowerShell!)
+// Or use: .\scripts\run-client.ps1 fabric 1.18.2
+def readProp = { String propName, String defaultValue ->
+	def fromCmd = gradle.startParameter.projectProperties[propName]
+	if (fromCmd != null) {
+		return fromCmd
+	}
+	def propsFile = new File(settingsDir, 'gradle.properties')
+	if (!propsFile.exists()) {
+		return defaultValue
+	}
+	def props = new Properties()
+	propsFile.withInputStream { props.load(it) }
+	return props.getProperty(propName, defaultValue)
+}
+
+def readVersionList = { String propName, String defaultCsv ->
+	def csv = readProp(propName, defaultCsv)
+	if (!csv?.trim()) {
+		return []
+	}
+	return csv.split(',').collect { it.trim() }.findAll { it }
+}
+
+include 'common'
+
+def allCommonModules = ['common-1.21.8', 'common-1.20.1', 'common-1.19.2', 'common-1.18.2', 'common-1.16.5', 'common-26.1']
+allCommonModules.each { name ->
+	include name
+	project(":${name}").projectDir = file(name)
+}
+
+// When togLoader is set, only that loader's subprojects are included.
+def activeLoader = readProp('togLoader', '').trim()
+
+def allFabricVersions = ['1.16.5', '1.18.2', '1.19.2', '1.20.1', '1.21.1', '1.21.8', '26.1']
+def enabledFabric = (!activeLoader || activeLoader == 'fabric')
+	? readVersionList('fabricVersions', '1.21.1')
+	: []
+
+enabledFabric.each { version ->
+	if (!allFabricVersions.contains(version)) {
+		throw new GradleException("Unknown Fabric version '${version}'. Known: ${allFabricVersions}")
+	}
+	include "fabric-${version}"
+	project(":fabric-${version}").projectDir = file("fabric/${version}")
+}
+
+def allNeoForgeVersions = ['1.21.1', '1.21.8', '26.1']
+def enabledNeoForge = (!activeLoader || activeLoader == 'neoforge')
+	? readVersionList('neoforgeVersions', '1.21.1')
+	: []
+
+enabledNeoForge.each { version ->
+	if (!allNeoForgeVersions.contains(version)) {
+		throw new GradleException("Unknown NeoForge version '${version}'. Known: ${allNeoForgeVersions}")
+	}
+	include "neoforge-${version}"
+	project(":neoforge-${version}").projectDir = file("neoforge/${version}")
+}
+
+def allForgeVersions = ['1.16.5', '1.18.2', '1.19.2', '1.20.1']
+def enabledForge = (!activeLoader || activeLoader == 'forge')
+	? readVersionList('forgeVersions', '')
+	: []
+
+enabledForge.each { version ->
+	if (!allForgeVersions.contains(version)) {
+		throw new GradleException("Unknown Forge version '${version}'. Known: ${allForgeVersions}")
+	}
+	include "forge-${version}"
+	project(":forge-${version}").projectDir = file("forge/${version}")
 }

@@ -1,0 +1,17 @@
+{
+  "name": "Wings Traits",
+  "category": "tools_of_the_gods:traits",
+  "icon": "tools_of_the_gods:wings_of_the_gods",
+  "read_by_default": true,
+  "sortnum": 14,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "$(#FFD700)Wings traits$()$(br2)$(#55FFFF)Aerodynamic I$() (1 slot) — $(item)Ghast Tear$()$(br)Faster elytra-style glide, +50% glide XP.$(br2)$(#55FFFF)Aerodynamic II$() (2 slots) — same item$(br)Much faster glide, +100% glide XP.$(br2)$(#55FFFF)Featherfall I$() (1 slot) — $(item)Turtle Scute$()$(br)50% less fall damage while worn."
+    },
+    {
+      "type": "patchouli:text",
+      "text": "$(#FFD700)Also on wings$()$(br2)Scholar, Soulbound, Modifiable, Sustaining, Purifying, Swiftstep, Bulwark.$(br2)$(#FF5555)Not allowed:$() all mining and combat-on-hit traits."
+    }
+  ]
+}

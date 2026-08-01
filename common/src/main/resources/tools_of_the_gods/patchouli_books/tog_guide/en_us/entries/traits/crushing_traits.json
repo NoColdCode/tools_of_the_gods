@@ -1,0 +1,13 @@
+{
+  "name": "Crushing",
+  "category": "tools_of_the_gods:traits",
+  "icon": "minecraft:cobblestone",
+  "read_by_default": true,
+  "sortnum": 22,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "$(#55FFFF)Crushing I$() (1 slot) — $(item)Cobblestone$()$(br)+12% mining speed on stone blocks.$(br2)$(#55FFFF)Crushing II$() (2 slots) — $(item)Deepslate$()$(br)+25% mining speed on stone blocks.$(br2)$(#FFD700)Tools:$() pickaxe, hammer, shovel."
+    }
+  ]
+}

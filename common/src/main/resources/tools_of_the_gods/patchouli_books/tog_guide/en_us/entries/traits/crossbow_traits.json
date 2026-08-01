@@ -1,0 +1,17 @@
+{
+  "name": "Crossbow Traits",
+  "category": "tools_of_the_gods:traits",
+  "icon": "tools_of_the_gods:crossbow_of_the_gods",
+  "read_by_default": true,
+  "sortnum": 11,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "$(#FFD700)Crossbow-only traits$()$(br2)$(#55FFFF)Marksman I$() (1 slot) — $(item)Spectral Arrow$()$(br)+1 bolt damage, +5% crossbow XP.$(br2)$(#55FFFF)Marksman II$() (2 slots) — $(item)Arrow$() upgrade$(br)+2 bolt damage, +10% crossbow XP.$(br2)$(#55FFFF)Quick Load I$() (1 slot) — $(item)Firework Rocket$()$(br)25% faster reload.$(br2)$(#55FFFF)Volley / Searing$() — $(item)Paper$() / $(item)Fire Charge$() (same as bow)."
+    },
+    {
+      "type": "patchouli:text",
+      "text": "$(#FFD700)Also on crossbow$()$(br2)Poison, Freezy (on hit), Scholar, Soulbound, Modifiable, Sustaining, Bountiful, Scavenger, Purifying, Swiftstep, Bulwark.$(br2)See $(l:traits/stalker_traits)Stalker$().$(br2)$(#FF5555)Not allowed:$() Silky, Momentum, Broad Touch, Moonlit, Ranger, Sharpy, Titan, Magnetic."
+    }
+  ]
+}

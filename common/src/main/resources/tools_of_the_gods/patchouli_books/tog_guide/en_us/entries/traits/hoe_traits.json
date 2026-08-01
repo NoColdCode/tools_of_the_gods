@@ -1,0 +1,17 @@
+{
+  "name": "Hoe Traits",
+  "category": "tools_of_the_gods:traits",
+  "icon": "tools_of_the_gods:hoe_of_the_gods",
+  "read_by_default": true,
+  "sortnum": 5,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "Hoe is limited to utility and general traits — no mining-area or combat-on-hit traits.$(br2)$(#55FFFF)Harvest I/II$() — $(item)Wheat Seeds$() / $(item)Wheat$()$(br)12% / 25% bonus crop drops.$(br2)$(#55FFFF)Autosmelt / Autosmelt II$() — $(item)Magma Block$()$(br2)$(#55FFFF)Speedy I–III$() — $(item)Redstone Block$()$(br2)$(#55FFFF)Frenzy I–III$() — $(item)Blaze Powder$()$(br2)$(#55FFFF)Scholar I/II$() — $(item)Lapis Lazuli$()"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "$(#55FFFF)Sustaining I–III$() — $(item)Bread$()$(br2)$(#55FFFF)Soulbound$() — $(item)Nether Star$()$(br2)$(#55FFFF)Modifiable$() — $(item)Diamond$()$(br2)$(#55FFFF)Bountiful I$() — $(item)Emerald$()$(br2)$(#55FFFF)Scavenger I$() — $(item)Hopper$()$(br2)$(#55FFFF)Purifying I$() — $(item)Glowstone Dust$()$(br2)$(#55FFFF)Swiftstep I$() — $(item)Feather$()$(br2)$(#55FFFF)Bulwark I$() — $(item)Brick$()$(br2)$(#FF5555)Not allowed:$() Silky, Momentum, Broad Touch, Moonlit, Poison, Freezy, Sharpy, Titan, Ranger, Magnetic."
+    }
+  ]
+}

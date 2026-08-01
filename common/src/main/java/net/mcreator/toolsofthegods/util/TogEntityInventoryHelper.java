@@ -1,0 +1,77 @@
+package net.mcreator.toolsofthegods.util;
+
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.ItemStack;
+
+import net.neoforged.neoforge.capabilities.Capabilities;
+import net.neoforged.neoforge.items.IItemHandler;
+
+/**
+ * Consumes upgrade materials from players, entity item handlers (e.g. MineColonies citizens), or both.
+ */
+public final class TogEntityInventoryHelper {
+
+	private TogEntityInventoryHelper() {
+	}
+
+	public static boolean consume(Entity entity, ItemStack template, int count) {
+		if (entity == null || template.isEmpty() || count <= 0) {
+			return false;
+		}
+		if (entity instanceof Player player) {
+			return consumeFromPlayer(player, template, count);
+		}
+		IItemHandler handler = entity.getCapability(Capabilities.ItemHandler.ENTITY);
+		if (handler != null && consumeFromHandler(handler, template, count)) {
+			return true;
+		}
+		return false;
+	}
+
+	private static boolean consumeFromPlayer(Player player, ItemStack template, int count) {
+		int found = 0;
+		for (int i = 0; i < player.getInventory().getContainerSize(); i++) {
+			ItemStack stack = player.getInventory().getItem(i);
+			if (ItemStack.isSameItemSameComponents(stack, template)) {
+				found += stack.getCount();
+			}
+		}
+		if (found < count) {
+			return false;
+		}
+		int toRemove = count;
+		for (int i = 0; i < player.getInventory().getContainerSize() && toRemove > 0; i++) {
+			ItemStack stack = player.getInventory().getItem(i);
+			if (ItemStack.isSameItemSameComponents(stack, template)) {
+				int removed = Math.min(stack.getCount(), toRemove);
+				stack.shrink(removed);
+				toRemove -= removed;
+			}
+		}
+		return true;
+	}
+
+	private static boolean consumeFromHandler(IItemHandler handler, ItemStack template, int count) {
+		int found = 0;
+		for (int slot = 0; slot < handler.getSlots(); slot++) {
+			ItemStack stack = handler.getStackInSlot(slot);
+			if (ItemStack.isSameItemSameComponents(stack, template)) {
+				found += stack.getCount();
+			}
+		}
+		if (found < count) {
+			return false;
+		}
+		int toRemove = count;
+		for (int slot = 0; slot < handler.getSlots() && toRemove > 0; slot++) {
+			ItemStack stack = handler.getStackInSlot(slot);
+			if (ItemStack.isSameItemSameComponents(stack, template)) {
+				int removed = Math.min(stack.getCount(), toRemove);
+				handler.extractItem(slot, removed, false);
+				toRemove -= removed;
+			}
+		}
+		return true;
+	}
+}

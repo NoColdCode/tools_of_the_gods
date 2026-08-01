@@ -1,0 +1,11 @@
+{
+  "required": true,
+  "package": "net.mcreator.toolsofthegods.mixin",
+  "compatibilityLevel": "${java_version}",
+  "mixins": [
+    "PlayerBreakSpeedMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

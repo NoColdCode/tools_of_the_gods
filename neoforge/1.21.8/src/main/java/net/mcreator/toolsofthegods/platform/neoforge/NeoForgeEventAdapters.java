@@ -1,0 +1,146 @@
+package net.mcreator.toolsofthegods.platform.neoforge;
+
+import net.minecraft.util.TriState;
+import net.neoforged.neoforge.event.entity.EntityJoinLevelEvent;
+import net.neoforged.neoforge.event.entity.living.LivingDamageEvent;
+import net.neoforged.neoforge.event.entity.living.LivingDeathEvent;
+import net.neoforged.neoforge.event.entity.living.LivingDropsEvent;
+import net.neoforged.neoforge.event.entity.living.LivingIncomingDamageEvent;
+import net.neoforged.neoforge.event.entity.living.LivingShieldBlockEvent;
+import net.neoforged.neoforge.event.entity.player.ItemFishedEvent;
+import net.neoforged.neoforge.event.entity.player.PlayerEvent;
+import net.neoforged.neoforge.event.entity.player.PlayerInteractEvent;
+import net.neoforged.neoforge.event.level.BlockDropsEvent;
+import net.neoforged.neoforge.event.level.BlockEvent;
+
+import net.minecraft.server.level.ServerPlayer;
+
+import net.mcreator.toolsofthegods.logic.context.TogBlockBreakContext;
+import net.mcreator.toolsofthegods.logic.context.TogBlockDropsContext;
+import net.mcreator.toolsofthegods.logic.context.TogBreakSpeedContext;
+import net.mcreator.toolsofthegods.logic.context.TogIncomingDamageContext;
+import net.mcreator.toolsofthegods.logic.context.TogItemFishedContext;
+import net.mcreator.toolsofthegods.logic.context.TogLeftClickBlockContext;
+import net.mcreator.toolsofthegods.logic.context.TogLivingDamagePostContext;
+import net.mcreator.toolsofthegods.logic.context.TogLivingDeathContext;
+import net.mcreator.toolsofthegods.logic.context.TogLivingDropsContext;
+import net.mcreator.toolsofthegods.logic.context.TogPlayerCloneContext;
+import net.mcreator.toolsofthegods.logic.context.TogRightClickBlockContext;
+import net.mcreator.toolsofthegods.logic.context.TogRightClickItemContext;
+import net.mcreator.toolsofthegods.logic.context.TogShieldBlockContext;
+
+/**
+ * Maps NeoForge events to loader-neutral {@code logic.context} types used by {@code common}.
+ */
+public final class NeoForgeEventAdapters {
+	private NeoForgeEventAdapters() {
+	}
+
+	public static TogBlockDropsContext blockDrops(BlockDropsEvent event) {
+		return new TogBlockDropsContext(
+			event.getLevel(),
+			event.getPos(),
+			event.getState(),
+			event.getBreaker(),
+			new java.util.ArrayList<>(event.getDrops()),
+			event.getBlockEntity()
+		);
+	}
+
+	public static TogLivingDropsContext livingDrops(LivingDropsEvent event) {
+		return new TogLivingDropsContext(event.getEntity(), event.getSource(), new java.util.ArrayList<>(event.getDrops()));
+	}
+
+	public static TogIncomingDamageContext incomingDamage(LivingIncomingDamageEvent event) {
+		return new TogIncomingDamageContext(event.getEntity(), event.getSource(), event.getAmount());
+	}
+
+	public static void applyIncomingDamage(LivingIncomingDamageEvent event, TogIncomingDamageContext ctx) {
+		event.setAmount(ctx.amount());
+	}
+
+	public static TogShieldBlockContext shieldBlock(LivingShieldBlockEvent event) {
+		return new TogShieldBlockContext(
+			event.getEntity(),
+			event.getDamageSource(),
+			event.getOriginalBlock(),
+			event.getOriginalBlockedDamage()
+		);
+	}
+
+	public static void applyShieldBlock(LivingShieldBlockEvent event, TogShieldBlockContext ctx) {
+		event.setBlocked(ctx.blocked());
+		event.setBlockedDamage(ctx.blockedDamage());
+		event.setShieldDamage(Math.round(ctx.shieldDamage()));
+	}
+
+	public static TogLivingDamagePostContext livingDamagePost(LivingDamageEvent.Post event) {
+		return new TogLivingDamagePostContext(event.getEntity(), event.getNewDamage(), event.getBlockedDamage());
+	}
+
+	public static TogBreakSpeedContext breakSpeed(PlayerEvent.BreakSpeed event) {
+		return new TogBreakSpeedContext(event.getEntity(), event.getState(), event.getPosition(), event.getOriginalSpeed());
+	}
+
+	public static void applyBreakSpeed(PlayerEvent.BreakSpeed event, TogBreakSpeedContext ctx) {
+		event.setNewSpeed(ctx.newSpeed());
+	}
+
+	public static TogRightClickItemContext rightClickItem(PlayerInteractEvent.RightClickItem event) {
+		return new TogRightClickItemContext(event.getEntity(), event.getLevel(), event.getItemStack());
+	}
+
+	public static void applyRightClickItem(PlayerInteractEvent.RightClickItem event, TogRightClickItemContext ctx) {
+		event.setCanceled(ctx.canceled());
+		if (ctx.cancellationResult() != net.minecraft.world.InteractionResult.PASS) {
+			event.setCancellationResult(ctx.cancellationResult());
+		}
+	}
+
+	public static TogRightClickBlockContext rightClickBlock(PlayerInteractEvent.RightClickBlock event) {
+		return new TogRightClickBlockContext(event.getEntity(), event.getLevel(), event.getItemStack());
+	}
+
+	public static void applyRightClickBlock(PlayerInteractEvent.RightClickBlock event, TogRightClickBlockContext ctx) {
+		event.setCanceled(ctx.canceled());
+		if (ctx.denyBlockUse()) {
+			event.setUseBlock(TriState.FALSE);
+		}
+		if (ctx.denyItemUse()) {
+			event.setUseItem(TriState.FALSE);
+		}
+		if (ctx.cancellationResult() != net.minecraft.world.InteractionResult.PASS) {
+			event.setCancellationResult(ctx.cancellationResult());
+		}
+	}
+
+	public static TogLeftClickBlockContext leftClickBlock(PlayerInteractEvent.LeftClickBlock event) {
+		return new TogLeftClickBlockContext(event.getEntity(), event.getLevel(), event.getItemStack());
+	}
+
+	public static TogBlockBreakContext blockBreak(BlockEvent.BreakEvent event) {
+		net.minecraft.world.level.Level level = event.getLevel() instanceof net.minecraft.world.level.Level l
+			? l
+			: null;
+		return new TogBlockBreakContext(level, event.getPos(), event.getState(), event.getPlayer());
+	}
+
+	public static TogLivingDeathContext livingDeath(LivingDeathEvent event) {
+		return new TogLivingDeathContext(event.getEntity(), event.getSource());
+	}
+
+	public static TogItemFishedContext itemFished(ItemFishedEvent event) {
+		return new TogItemFishedContext(event.getEntity(), event.getDrops());
+	}
+
+	public static TogPlayerCloneContext playerClone(PlayerEvent.Clone event) {
+		return new TogPlayerCloneContext(event.getOriginal(), event.getEntity(), event.isWasDeath());
+	}
+
+	public static ServerPlayer serverPlayerFromJoin(EntityJoinLevelEvent event) {
+		if (event.getEntity() instanceof ServerPlayer player) {
+			return player;
+		}
+		return null;
+	}
+}

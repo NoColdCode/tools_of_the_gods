@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [" L ", "EBS", " G "],
+  "key": {
+    "L": { "item": "minecraft:lapis_lazuli" },
+    "E": { "item": "minecraft:emerald" },
+    "B": { "item": "minecraft:glass_bottle" },
+    "G": { "item": "minecraft:glowstone_dust" },
+    "S": { "item": "minecraft:diamond" }
+  },
+  "result": { "id": "tools_of_the_gods:xp_infusion_major", "count": 1 }
+}

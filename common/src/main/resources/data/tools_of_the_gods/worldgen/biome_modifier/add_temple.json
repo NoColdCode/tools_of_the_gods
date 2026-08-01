@@ -1,0 +1,6 @@
+{
+  "type": "neoforge:add_features",
+  "biomes": "#minecraft:is_overworld",
+  "features": "tools_of_the_gods:temple_of_the_gods",
+  "step": "surface_structures"
+}

@@ -1,0 +1,13 @@
+{
+  "name": "Rime",
+  "category": "tools_of_the_gods:traits",
+  "icon": "minecraft:packed_ice",
+  "read_by_default": true,
+  "sortnum": 17,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "$(#55FFFF)Rime I$() (1 slot) — $(item)Packed Ice$()$(br)Slowness I on hit. +15% damage vs burning targets.$(br2)$(#55FFFF)Rime II$() (2 slots) — $(item)Blue Ice$()$(br)Slowness II on hit. +30% damage vs burning targets.$(br2)$(#FFD700)Tools:$() sword, bow."
+    }
+  ]
+}

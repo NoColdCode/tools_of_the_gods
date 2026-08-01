@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "pattern": ["a", "b", "c"],
+  "key": {
+    "a": { "item": "minecraft:fishing_rod" },
+    "b": { "tag": "minecraft:planks" },
+    "c": { "item": "minecraft:stick" }
+  },
+  "result": { "id": "tools_of_the_gods:fishing_rod_of_the_gods", "count": 1 }
+}

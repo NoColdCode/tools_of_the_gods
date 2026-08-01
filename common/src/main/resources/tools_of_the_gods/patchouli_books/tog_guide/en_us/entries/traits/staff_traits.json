@@ -1,0 +1,17 @@
+{
+  "name": "Staff Traits",
+  "category": "tools_of_the_gods:traits",
+  "icon": "tools_of_the_gods:staff_of_the_gods",
+  "read_by_default": true,
+  "sortnum": 13,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "$(#FFD700)Staff traits$()$(br2)$(#55FFFF)Arcane I$() (1 slot) — $(item)Amethyst Shard$()$(br)Stronger magic bolt, 20% shorter spell cooldown.$(br2)$(#55FFFF)Arcane II$() (2 slots) — same item$(br)Much stronger bolt, 35% shorter cooldown.$(br2)$(#55FFFF)Channeling I$() (1 slot) — $(item)Lightning Rod$()$(br)Staff bolts call lightning during thunderstorms."
+    },
+    {
+      "type": "patchouli:text",
+      "text": "$(#FFD700)Also on staff$()$(br2)Scholar, Soulbound, Modifiable, Sustaining, Purifying, Swiftstep, Bulwark.$(br2)$(#FF5555)Not allowed:$() mining traits, Poison, Freezy, Sharpy, Titan, Ranger, Bountiful, Scavenger, Magnetic."
+    }
+  ]
+}

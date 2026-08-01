@@ -1,0 +1,13 @@
+{
+  "name": "Ancient",
+  "category": "tools_of_the_gods:traits",
+  "icon": "minecraft:lapis_lazuli",
+  "read_by_default": true,
+  "sortnum": 23,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "$(#55FFFF)Ancient I$() (1 slot) — $(item)Lapis Lazuli$()$(br)+15% XP from broken blocks.$(br2)$(#55FFFF)Ancient II$() (2 slots) — $(item)Lapis Block$()$(br)+30% XP from broken blocks.$(br2)$(#FFD700)Tools:$() pickaxe, hammer, shovel."
+    }
+  ]
+}

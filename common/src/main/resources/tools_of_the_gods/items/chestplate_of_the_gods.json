@@ -1,0 +1,76 @@
+﻿{
+"model":  {
+"fallback":  {
+"model":  "tools_of_the_gods:item/chestplate_of_the_gods",
+"type":  "minecraft:model"
+},
+"type":  "minecraft:range_dispatch",
+"property":  "tools_of_the_gods:tier",
+"entries":  [
+{
+"model":  {
+"model":  "tools_of_the_gods:item/chestplate_of_the_gods_tier1",
+"type":  "minecraft:model"
+},
+"threshold":  0.1
+},
+{
+"model":  {
+"model":  "tools_of_the_gods:item/chestplate_of_the_gods_tier2",
+"type":  "minecraft:model"
+},
+"threshold":  0.2
+},
+{
+"model":  {
+"model":  "tools_of_the_gods:item/chestplate_of_the_gods_tier3",
+"type":  "minecraft:model"
+},
+"threshold":  0.3
+},
+{
+"model":  {
+"model":  "tools_of_the_gods:item/chestplate_of_the_gods_tier4",
+"type":  "minecraft:model"
+},
+"threshold":  0.4
+},
+{
+"model":  {
+"model":  "tools_of_the_gods:item/chestplate_of_the_gods_tier5",
+"type":  "minecraft:model"
+},
+"threshold":  0.5
+},
+{
+"model":  {
+"model":  "tools_of_the_gods:item/chestplate_of_the_gods_tier6",
+"type":  "minecraft:model"
+},
+"threshold":  0.6
+},
+{
+"model":  {
+"model":  "tools_of_the_gods:item/chestplate_of_the_gods_tier7",
+"type":  "minecraft:model"
+},
+"threshold":  0.7
+},
+{
+"model":  {
+"model":  "tools_of_the_gods:item/chestplate_of_the_gods_tier8",
+"type":  "minecraft:model"
+},
+"threshold":  0.8
+},
+{
+"model":  {
+"model":  "tools_of_the_gods:item/chestplate_of_the_gods_tier9",
+"type":  "minecraft:model"
+},
+"threshold":  0.9
+}
+],
+"scale":  1
+}
+}

@@ -1,0 +1,16 @@
+{
+  "name": "Welcome",
+  "category": "tools_of_the_gods:intro",
+  "icon": "tools_of_the_gods:tog_guide_book",
+  "sortnum": 0,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "$(#FFD700)Tools of the Gods$() adds progressive tools, armor, and traits.$(br2)Every TOG item gains XP from use, levels up to 100, and unlocks tiers with gems. Traits are bound at the $(l:traits/smithing_table)Trait Smithing Table$().$(br2)See $(l:intro/first_steps)First Steps$() to begin."
+    },
+    {
+      "type": "patchouli:text",
+      "text": "Browse categories on the left.$(br2)$(li) $(l:core_tools/overview)Core Tools$() — all seven crafts in one place$(br2)$(li) $(l:armor/overview)Armor of the Gods$()$(br2)$(li) $(l:defense/shield)Shield of the Gods$()$(br2)$(li) $(l:traits/pickaxe_traits)Traits by Tool$() — bind items and exact values$(br2)$(li) $(l:progression/gems)Gems & Tiers$()"
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "id": "tools_of_the_gods",
+  "version": "${version}",
+  "name": "Tools of the Gods",
+  "description": "Tools of the Gods — Fabric ${minecraft_version}",
+  "authors": ["MCreator"],
+  "license": "MIT",
+  "icon": "assets/tools_of_the_gods/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "net.mcreator.toolsofthegods.platform.fabric.FabricBootstrap"
+    ],
+    "client": [
+      "net.mcreator.toolsofthegods.platform.fabric.FabricClientBootstrap"
+    ]
+  },
+  "mixins": [
+    "tools_of_the_gods.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.16.0",
+    "minecraft": "~${minecraft_version}",
+    "java": ">=${java_version}",
+    "${fabric_api_mod_id}": "*"
+  },
+  "suggests": {
+    "patchouli": "*"
+  }
+}

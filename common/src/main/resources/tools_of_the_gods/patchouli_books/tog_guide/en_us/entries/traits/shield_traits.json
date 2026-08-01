@@ -1,0 +1,17 @@
+{
+  "name": "Shield Traits",
+  "category": "tools_of_the_gods:traits",
+  "icon": "tools_of_the_gods:shield_of_the_gods",
+  "read_by_default": true,
+  "sortnum": 9,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "$(#FFD700)Shield-only traits$()$(br2)$(#55FFFF)Guardian I$() (1 slot) — $(item)Iron Block$()$(br)+12% block chance, +10% block power.$(br2)$(#55FFFF)Guardian II$() (2 slots) — $(item)Obsidian$() upgrade$(br)+22% block chance, +18% block power.$(br2)$(#55FFFF)Steadfast I/II$() — $(item)Chain$() / $(item)Iron Nugget$()$(br)25% / 50% less strain per block.$(br2)$(#55FFFF)Repulse I$() (1 slot) — $(item)Piston$()$(br)Knockback wave on right-click (disabled while sneaking).$(br2)See $(l:traits/riposte_traits)Riposte$()."
+    },
+    {
+      "type": "patchouli:text",
+      "text": "$(#FFD700)Also allowed on shield$()$(br2)Scholar, Soulbound, Modifiable, Sustaining, Bulwark, Swiftstep, Purifying — same as armor.$(br2)$(#FF5555)Not allowed:$() Thorns, Fireward, mining traits, Sharpy, Titan, Poison, Freezy, Ranger, etc.$(br2)See $(l:defense/shield)Shield of the Gods$() for blocking mechanics and $(l:defense/defense_traits)Defense Traits$() for the full list."
+    }
+  ]
+}

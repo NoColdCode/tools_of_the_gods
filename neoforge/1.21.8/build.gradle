@@ -1,0 +1,7 @@
+plugins {
+	id 'eclipse'
+	id 'net.neoforged.moddev' version '2.0.141'
+}
+
+ext.togNeoForgeVersion = '1.21.8'
+apply from: rootProject.file('gradle/neoforge-project.gradle')

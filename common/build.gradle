@@ -1,0 +1,59 @@
+plugins {
+	id 'net.neoforged.moddev' version '2.0.107'
+}
+
+group = 'net.mcreator.toolsofthegods'
+
+base {
+	archivesName = 'tools_of_the_gods-common'
+}
+
+java.toolchain.languageVersion = JavaLanguageVersion.of(21)
+
+sourceSets {
+	main {
+		resources {
+			exclude 'tools_of_the_gods/**'
+		}
+	}
+}
+
+neoForge {
+	version = neoforge_version
+}
+
+tasks.withType(JavaCompile).configureEach {
+	options.encoding = 'UTF-8'
+}
+
+// MCreator lays out client assets at resources/tools_of_the_gods/ — remap to assets/tools_of_the_gods/.
+processResources {
+	duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+	def resRoot = file('src/main/resources')
+	from(resRoot) {
+		include 'data/**'
+		include 'defaultconfigs/**'
+		include 'tog_platform.json'
+	}
+	from("$resRoot/tools_of_the_gods") {
+		into 'assets/tools_of_the_gods'
+	}
+	// XP elixir item textures also drive Divine Focus/Surge/etc. effect icons.
+	from("$resRoot/tools_of_the_gods/textures/item") {
+		include 'elixir_xp_*.png'
+		into 'assets/tools_of_the_gods/textures/mob_effect'
+		rename { String fileName ->
+			fileName.replace('elixir_', '')
+		}
+	}
+}
+
+// Embedded into the loader-specific jar; not a standalone mod.
+tasks.named('jar', Jar) {
+	manifest {
+		attributes(
+			'FMLModType': 'GAMELIBRARY',
+			'Automatic-Module-Name': 'tools_of_the_gods.common'
+		)
+	}
+}

@@ -1,0 +1,14 @@
+﻿{
+  "parent": "tools_of_the_gods:item/_shield_plate_base",
+  "textures": {
+    "plate": "tools_of_the_gods:item/oshield"
+  },
+  "overrides": [
+    {
+      "predicate": {
+        "blocking": 1
+      },
+      "model": "tools_of_the_gods:item/shield_of_the_gods_tier6_blocking"
+    }
+  ]
+}

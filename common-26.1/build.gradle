@@ -1,0 +1,2 @@
+ext.common_java_version = 25
+apply from: rootProject.file('gradle/common-library.gradle')

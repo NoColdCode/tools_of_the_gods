@@ -1,0 +1,31 @@
+{
+  "name": "Shield of the Gods",
+  "category": "tools_of_the_gods:defense",
+  "icon": "tools_of_the_gods:shield_of_the_gods",
+  "read_by_default": true,
+  "sortnum": 0,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "A progressive shield with level (0–100) and tier (0–9). Craft from a $(item)Shield$() surrounded by $(item)Sticks$() (see recipe).$(br2)Raise it to block melee hits and arrows while facing the attacker. Stats scale $(#55FF55)linearly with level$() — higher tier always means a stronger shield at the same level. XP from successful blocks."
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "tools_of_the_gods:shield_of_the_gods"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Shield Scaling",
+      "text": "All core stats use level only (tier changes visuals & gem gates, not the formulas):$(br2)$(#55FFFF)Block$() — chance a hit is fully blocked:$(br)$(#AAAAAA)50% + (level ÷ 100) × 49%$()$(br)Level 0 = 50% · Level 50 = 74.5% · Level 100 = $(#55FF55)99%$()$(br2)$(#55FFFF)Power$() — damage negated on a successful block:$(br)$(#AAAAAA)60% + ((level − 1) ÷ 99) × 40%$()$(br)Level 1 = 60% · Level 50 ≈ 80% · Level 100 = $(#55FF55)100%$()"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Strain & Return",
+      "text": "$(#FF5555)Strain$() builds from blocked damage while raised. When strain exceeds capacity, blocking is disabled until recovery ends.$(br2)$(#55FFFF)Strain cap$(): $(#AAAAAA)4 + (level ÷ 100) × 46$() — 4 → 50$(br)$(#55FFFF)Recovery$(): $(#AAAAAA)6s − (level ÷ 100) × 3s$() — 6s → 3s$(br2)$(#FFD700)Return$() — damage reflected to the attacker:$(br)0% at level 0 · $(#55FF55)1%$() at level 50 · $(#55FF55)15%$() at level 100"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "$(#FFD700)Tier visuals & names$() — same path as armor: Worn Leather → Rusty Chainmail → … → Divine. T1 upgrade uses $(item)8 Chains$() (not cobblestone). Gem tiers match $(l:progression/gems)Gem Progression$().$(br2)$(#55FF55)Shift+Right-click$() when $(#FF5555)NEEDS UPGRADE$() shows to tier-up.$(br2)Bind $(#55FFFF)Guardian$() and $(#55FFFF)Repulse$() at the $(l:traits/smithing_table)Trait Smithing Table$(). See $(l:defense/defense_traits)Defense Traits$() and $(l:traits/shield_traits)Shield Traits$()."
+    }
+  ]
+}

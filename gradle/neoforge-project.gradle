@@ -1,0 +1,120 @@
+/**
+ * Shared NeoForge module build. Requires:
+ * - plugins { id 'net.neoforged.moddev' version '...' } in subproject build.gradle
+ * - ext.togNeoForgeVersion = '<minecraft version>' before apply
+ */
+import java.util.Properties
+
+def versionProps = new Properties()
+def versionFile = rootProject.file("gradle/neoforge-versions/${togNeoForgeVersion}.properties")
+if (!versionFile.exists()) {
+	throw new GradleException("Missing NeoForge version config: ${versionFile}")
+}
+versionFile.withInputStream { versionProps.load(it) }
+
+def mcVersion = versionProps.getProperty('minecraft_version')
+def javaVersion = Integer.parseInt(versionProps.getProperty('java_version'))
+def neoVersion = versionProps.getProperty('neoforge_version')
+def patchouliVersion = versionProps.getProperty('patchouli_version', '')
+def mergeCommon = versionProps.getProperty('merge_common_sources', 'true') == 'true'
+def useJarJar = versionProps.getProperty('use_jarjar_common', 'false') == 'true'
+def commonProject = versionProps.getProperty('common_project', 'common')
+def glueSourceDir = versionProps.getProperty('glue_source_dir', "neoforge/${togNeoForgeVersion}/src/main/java")
+
+group = 'net.mcreator.toolsofthegods'
+version = rootProject.mod_version
+base.archivesName = "tools_of_the_gods-neoforge-${mcVersion}"
+
+java.toolchain.languageVersion = JavaLanguageVersion.of(javaVersion)
+
+repositories {
+	maven { url = 'https://maven.blamejared.com' }
+}
+
+def mergeGuideBook = versionProps.getProperty('merge_guide_book_client', 'true') == 'true'
+
+apply from: rootProject.file('gradle/loader-common.gradle')
+togApplyNeoForgeSourceSets(project, glueSourceDir, commonProject, mergeCommon, mergeGuideBook)
+togApplyCommonResources(project, commonProject, mcVersion)
+
+dependencies {
+	if (useJarJar) {
+		implementation project(':common')
+		jarJar project(':common')
+	} else if (!mergeCommon) {
+		implementation project(":${commonProject}")
+	}
+
+	if (patchouliVersion) {
+		compileOnly "vazkii.patchouli:Patchouli:${patchouliVersion}:api"
+		runtimeOnly "vazkii.patchouli:Patchouli:${patchouliVersion}"
+	}
+}
+
+neoForge {
+	version = neoVersion
+
+	runs {
+		client {
+			client()
+			jvmArgument '-XX:TieredStopAtLevel=1'
+			def mcreatorJvmOptions = System.getenv('MCREATOR_JVM_OPTIONS')
+			if (mcreatorJvmOptions) {
+				mcreatorJvmOptions.split("\\s+").findAll { it.trim() }.each { arg ->
+					jvmArgument(arg)
+				}
+			}
+		}
+		server {
+			server()
+		}
+
+		configureEach {
+			systemProperty 'forge.logging.markers', 'REGISTRIES'
+			logLevel = org.slf4j.event.Level.DEBUG
+		}
+	}
+
+	mods {
+		tools_of_the_gods {
+			sourceSet sourceSets.main
+		}
+	}
+}
+
+tasks.withType(JavaCompile).configureEach {
+	options.encoding = 'UTF-8'
+}
+
+tasks.named('jar', Jar) {
+	if (useJarJar) {
+		from(project(':common').sourceSets.main.output)
+	}
+	duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+}
+
+def replaceProps = [
+	minecraft_version         : mcVersion,
+	minecraft_version_range   : versionProps.getProperty('minecraft_version_range', "[${mcVersion}]"),
+	neoforge_version          : neoVersion,
+	neoforge_version_range    : versionProps.getProperty('neoforge_version_range', "[${neoVersion},)"),
+	mod_id                    : rootProject.mod_id,
+	mod_name                  : rootProject.mod_name,
+	mod_version               : rootProject.mod_version,
+	loader_version_range      : versionProps.getProperty('loader_version_range', '[4,)'),
+]
+
+processResources {
+	inputs.properties replaceProps
+	filesMatching('META-INF/neoforge.mods.toml') {
+		expand replaceProps
+	}
+}
+
+tasks.register('copyPatchouliToRunMods', Copy) {
+	description = 'Copies Patchouli jar into run/mods for local testing'
+	onlyIf { patchouliVersion }
+	from(configurations.runtimeClasspath.filter { it.name.startsWith('Patchouli') })
+	into layout.projectDirectory.dir('run/mods')
+	duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+}

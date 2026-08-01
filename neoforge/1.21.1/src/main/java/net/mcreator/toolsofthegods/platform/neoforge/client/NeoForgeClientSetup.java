@@ -1,9 +1,12 @@
 package net.mcreator.toolsofthegods.platform.neoforge.client;
 
+import net.minecraft.client.renderer.entity.player.PlayerRenderer;
+import net.minecraft.client.resources.PlayerSkin;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
+import net.neoforged.neoforge.client.event.EntityRenderersEvent;
 import net.neoforged.neoforge.client.event.RegisterMenuScreensEvent;
 
 import net.mcreator.toolsofthegods.ToolsOfTheGodsMod;
@@ -23,6 +26,16 @@ public final class NeoForgeClientSetup {
 	@SubscribeEvent
 	public static void onClientSetup(FMLClientSetupEvent event) {
 		event.enqueueWork(DynamicTextureHandler::init);
+	}
+
+	@SubscribeEvent
+	public static void onAddLayers(EntityRenderersEvent.AddLayers event) {
+		for (PlayerSkin.Model skin : event.getSkins()) {
+			PlayerRenderer renderer = event.getSkin(skin);
+			if (renderer != null) {
+				renderer.addLayer(new WingsOfTheGodsElytraLayer(renderer, event.getEntityModels()));
+			}
+		}
 	}
 
 	@SubscribeEvent

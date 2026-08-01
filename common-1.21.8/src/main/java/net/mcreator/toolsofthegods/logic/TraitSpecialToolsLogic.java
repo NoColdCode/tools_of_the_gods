@@ -105,14 +105,20 @@ public final class TraitSpecialToolsLogic {
 			return;
 		}
 
-		if (ctx.entity() instanceof Player player && ctx.source().is(net.minecraft.tags.DamageTypeTags.IS_FALL)) {
+		if (ctx.entity() instanceof Player player) {
 			ItemStack wings = TogEquipmentHelper.getTogWings(player);
 			if (!wings.isEmpty()) {
-				ctx.setAmount(ctx.amount()
-					* WingsFlightLogic.getFallDamageMultiplier(wings)
-					* TraitSystem.getFeatherfallDamageMultiplier(wings));
+				if (ctx.source().is(net.minecraft.tags.DamageTypeTags.IS_FALL)) {
+					ctx.setAmount(ctx.amount()
+						* WingsFlightLogic.getFallDamageMultiplier(wings)
+						* TraitSystem.getFeatherfallDamageMultiplier(wings));
+					return;
+				}
+				if (ctx.source().is(net.minecraft.world.damagesource.DamageTypes.FLY_INTO_WALL)) {
+					ctx.setAmount(ctx.amount() * WingsFlightLogic.getKineticDamageMultiplier(wings));
+					return;
+				}
 			}
-			return;
 		}
 
 		Entity sourceEntity = ctx.source().getEntity();

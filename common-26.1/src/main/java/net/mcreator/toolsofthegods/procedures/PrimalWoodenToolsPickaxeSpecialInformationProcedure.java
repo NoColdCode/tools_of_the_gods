@@ -83,23 +83,37 @@ public class PrimalWoodenToolsPickaxeSpecialInformationProcedure {
 				.append(" §7· Recov §e").append(recSec).append("s")
 				.append(" §7· Return §6").append(String.format("%.0f%%", reflect));
 		} else if (type == ToolProgressionHelper.ToolType.WINGS) {
+			var wingMode = net.mcreator.toolsofthegods.logic.WingsFlightLogic.getMode(itemstack);
 			tooltip.append("§7Mode: §d").append(net.mcreator.toolsofthegods.logic.WingsFlightLogic.getModeLabel(itemstack));
 			tooltip.append("\n§7Glide: §b").append(String.format("%.0f%%", net.mcreator.toolsofthegods.logic.WingsFlightLogic.getGlide(itemstack) * 100f));
-			tooltip.append(" §7· Resist: §e").append(String.format("%.0fs", net.mcreator.toolsofthegods.logic.WingsFlightLogic.getResistanceSeconds(itemstack)));
-			tooltip.append("\n§7Turn: §b").append(String.format("%.0f%%", net.mcreator.toolsofthegods.logic.WingsFlightLogic.getTurnSpeed(itemstack) * 100f));
-			float flyHeight = net.mcreator.toolsofthegods.logic.WingsFlightLogic.getFlyHeight(itemstack);
-			if (flyHeight > 0.01f) {
-				tooltip.append(" §7· Fly Height: §e").append(String.format("%.1f", flyHeight));
+			if (net.mcreator.toolsofthegods.logic.WingsFlightLogic.hasInfiniteResistance(itemstack)) {
+				tooltip.append(" §7· Resist: §e∞");
 			} else {
+				tooltip.append(" §7· Resist: §e").append(String.format("%.0fs", net.mcreator.toolsofthegods.logic.WingsFlightLogic.getResistanceSeconds(itemstack)));
+			}
+			if (wingMode == net.mcreator.toolsofthegods.logic.WingsFlightLogic.Mode.CAPE) {
+				float fallCancel = (1.0f - net.mcreator.toolsofthegods.logic.WingsFlightLogic.getFallDamageMultiplier(itemstack)) * 100f;
+				tooltip.append("\n§7Fall Cancel: §a").append(String.format("%.0f%%", fallCancel));
 				tooltip.append(" §7· Cape fall cushion");
-			}
-			if (level <= 20) {
-				tooltip.append("\n§8Lv 0–20: slows falls, less fall damage");
-			} else if (level <= 60) {
-				tooltip.append("\n§8Lv 21–60: elytra glide (faster toward 60)");
 			} else {
-				tooltip.append("\n§8Lv 61–100: look up to climb (Icarus)");
+				tooltip.append("\n§7Turn: §b").append(String.format("%.0f%%", net.mcreator.toolsofthegods.logic.WingsFlightLogic.getTurnSpeed(itemstack) * 100f));
+				float flyHeight = net.mcreator.toolsofthegods.logic.WingsFlightLogic.getFlyHeight(itemstack);
+				if (flyHeight > 0.01f) {
+					tooltip.append(" §7· Fly Height: §e").append(String.format("%.1f", flyHeight));
+				}
+				float kineticMul = net.mcreator.toolsofthegods.logic.WingsFlightLogic.getKineticDamageMultiplier(itemstack);
+				float kineticCancel = (1.0f - kineticMul) * 100f;
+				if (kineticMul <= 0.001f) {
+					tooltip.append("\n§7Kinetic: §aImmune");
+				} else {
+					tooltip.append("\n§7Kinetic Cancel: §a").append(String.format("%.0f%%", kineticCancel));
+				}
 			}
+			tooltip.append("\n§8").append(switch (wingMode) {
+				case CAPE -> "Tiers 1–2: cape (slow fall, less fall damage)";
+				case ELYTRA -> "Tiers 3–6: elytra glide";
+				case ICARUS -> "Tiers 7–10: wings (look up to climb)";
+			});
 		}
 
 		for (Component line : TraitSystem.getTraitTooltip(itemstack)) {

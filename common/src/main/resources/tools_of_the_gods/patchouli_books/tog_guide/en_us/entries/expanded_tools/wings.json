@@ -1,0 +1,27 @@
+{
+  "name": "Wings of the Gods",
+  "category": "tools_of_the_gods:expanded_tools",
+  "icon": "tools_of_the_gods:wings_of_the_gods",
+  "sortnum": 50,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "$(#FFD700)Wings of the Gods$()$(br2)Chest-slot flight item (Aerial material — no armor points). Craft early with feathers, leather, and string.$(br2)Uses the $(l:progression/gems)same gem upgrades$() as tools (cobble → colored gems → Universe Gem). Only the $(#55FFFF)display name and look$() change per tier."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Flight modes",
+      "text": "$(#55FFFF)Tiers 1–2 · Cape$()$(br)Crow → Magpie. Slow fall and reduced fall damage — no elytra deploy.$(br2)$(#55FFFF)Tiers 3–6 · Elytra$()$(br)Phantom → Scarlet Macaw. Glide; speed improves as you level.$(br2)$(#55FFFF)Tiers 7–10 · Wings$()$(br)Dark Spix → Allay → $(#FFD700)Wings of the Gods$() (Angel). Look up to climb.$(br2)Stats: Glide, Resistance (air time), Turn Speed, Fly Height. Gain XP while airborne."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Tier looks",
+      "text": "$(li) Crow Cape$(li) Magpie Cape$(li) Phantom Elytra$(li) Crimson Rosella Elytra$(li) Blue and Gold Macaw Elytra$(li) Scarlet Macaw Elytra$(li) Dark Spix Macaw Wings$(li) Spix Macaw Wings$(li) Allay Wings$(li) $(#FFD700)Wings of the Gods$()$(br2)$(#AAAAAA)Wing textures by OhDeerDreamy on Planet Minecraft — thank you!$()"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "tools_of_the_gods:wings_of_the_gods",
+      "text": "See also $(l:traits/wings_traits)Wings Traits$()."
+    }
+  ]
+}

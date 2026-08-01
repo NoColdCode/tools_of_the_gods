@@ -80,7 +80,7 @@ public final class ToolsOfTheGodsCommonConfig {
 
 		builder.push("features");
 		EXTENDED_TOOLS_ENABLED = builder
-			.comment("Enable special weapons (trident, spear, staff, wings, ultimate tool, etc.). Set false for armor-only packs.")
+			.comment("Enable special weapons (trident, spear, staff, ultimate tool, etc.). Wings are always available. Set false for armor-only packs.")
 			.define("extendedToolsEnabled", false);
 		CREATIVE_TIER_PREVIEWS_ENABLED = builder
 			.comment("Show every tier (0-9) of core tools and armor in the creative tab.")

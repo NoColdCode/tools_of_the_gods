@@ -32,6 +32,9 @@ public final class TogCreativeTabHelper {
 		acceptArmorPiece(output, ToolsOfTheGodsModItems.ARMOR_OF_THE_GODS_BOOTS.get());
 		acceptShieldPiece(output, ToolsOfTheGodsModItems.SHIELD_OF_THE_GODS.get());
 
+		// Wings are always listed (not behind extendedToolsEnabled).
+		acceptWings(output);
+
 		if (TogFeatures.extendedToolsEnabled()) {
 			output.accept(ToolsOfTheGodsModItems.FISHING_ROD_OF_THE_GODS.get());
 			output.accept(ToolsOfTheGodsModItems.CROSSBOW_OF_THE_GODS.get());
@@ -39,7 +42,6 @@ public final class TogCreativeTabHelper {
 			output.accept(ToolsOfTheGodsModItems.SPEAR_OF_THE_GODS.get());
 			output.accept(ToolsOfTheGodsModItems.FLAIL_OF_THE_GODS.get());
 			output.accept(ToolsOfTheGodsModItems.STAFF_OF_THE_GODS.get());
-			output.accept(ToolsOfTheGodsModItems.WINGS_OF_THE_GODS.get());
 			output.accept(ToolsOfTheGodsModItems.ULTIMATE_TOOL_OF_THE_GODS.get());
 		}
 
@@ -89,6 +91,11 @@ public final class TogCreativeTabHelper {
 		} else {
 			output.accept(item);
 		}
+	}
+
+	/** All wing tier looks (Crow Cape → Wings of the Gods). Always available in creative. */
+	public static void acceptWings(CreativeModeTab.Output output) {
+		acceptTierPreviews(output, ToolsOfTheGodsModItems.WINGS_OF_THE_GODS.get(), ToolType.WINGS);
 	}
 
 	private static void acceptTierPreviews(CreativeModeTab.Output output, Item item, ToolType type) {

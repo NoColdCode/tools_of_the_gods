@@ -51,6 +51,6 @@ public class WingsOfTheGodsItem extends ArmorItem {
 	public void appendHoverText(ItemStack stack, Item.TooltipContext context, List<Component> list, TooltipFlag flag) {
 		super.appendHoverText(stack, context, list, flag);
 		TogItemUtils.appendTogTooltip(stack, context, list, flag);
-		list.add(Component.literal("§8Chest slot · Cape → Elytra → Icarus flight"));
+		list.add(Component.literal("§8Chest slot · Cape → Elytra → Wings flight"));
 	}
 }

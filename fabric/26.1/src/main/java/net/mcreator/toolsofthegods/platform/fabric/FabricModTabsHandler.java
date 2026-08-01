@@ -4,6 +4,7 @@ import net.fabricmc.fabric.api.creativetab.v1.CreativeModeTabEvents;
 
 import net.minecraft.world.item.CreativeModeTabs;
 
+import net.mcreator.toolsofthegods.init.TogCreativeTabHelper;
 import net.mcreator.toolsofthegods.init.ToolsOfTheGodsModItems;
 import net.mcreator.toolsofthegods.init.ToolsOfTheGodsOrbItems;
 import net.mcreator.toolsofthegods.item.TogGuideBookItem;
@@ -34,6 +35,7 @@ public final class FabricModTabsHandler {
 			output.accept(ToolsOfTheGodsModItems.ARMOR_OF_THE_GODS_LEGGINGS.get());
 			output.accept(ToolsOfTheGodsModItems.ARMOR_OF_THE_GODS_BOOTS.get());
 			output.accept(ToolsOfTheGodsModItems.SHIELD_OF_THE_GODS.get());
+			TogCreativeTabHelper.acceptWings(output);
 			if (TogFeatures.extendedToolsEnabled()) {
 				output.accept(ToolsOfTheGodsModItems.FISHING_ROD_OF_THE_GODS.get());
 				output.accept(ToolsOfTheGodsModItems.CROSSBOW_OF_THE_GODS.get());
@@ -41,7 +43,6 @@ public final class FabricModTabsHandler {
 				output.accept(ToolsOfTheGodsModItems.SPEAR_OF_THE_GODS.get());
 				output.accept(ToolsOfTheGodsModItems.FLAIL_OF_THE_GODS.get());
 				output.accept(ToolsOfTheGodsModItems.STAFF_OF_THE_GODS.get());
-				output.accept(ToolsOfTheGodsModItems.WINGS_OF_THE_GODS.get());
 				output.accept(ToolsOfTheGodsModItems.ULTIMATE_TOOL_OF_THE_GODS.get());
 			}
 		});

@@ -294,6 +294,21 @@ public class TogGuideBookItem extends Item {
 			"§bLapis Block§r → Ancient II"
 		));
 
+		// ── Wings progression ───────────────────────────────────────────────
+		pages.add(page(
+			h("Wings of the Gods") + "\n\n" +
+			"Chest flight item. Same gem upgrades as tools;\n" +
+			"looks and names change per tier.\n\n" +
+			"§dTiers 1–2 Cape§r  Crow → Magpie\n" +
+			"§7Slow fall, less fall damage§r\n\n" +
+			"§dTiers 3–6 Elytra§r  Phantom → Scarlet Macaw\n" +
+			"§7Glide (faster as you level)§r\n\n" +
+			"§dTiers 7–10 Wings§r  Dark Spix → Allay → Gods\n" +
+			"§7Look up to climb (Angel = Wings of the Gods)§r\n\n" +
+			"§8Names: Crow Cape, Phantom Elytra, Allay Wings…§r\n" +
+			"§8Textures by OhDeerDreamy (PMC)§r"
+		));
+
 		// ── Page 14: Gem progression overview ────────────────────────────────
 		pages.add(page(
 			h("Gem Progression") + "\n\n" +

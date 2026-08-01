@@ -32,7 +32,6 @@ public final class TogFeatures {
 			|| item == ToolsOfTheGodsModItems.SPEAR_OF_THE_GODS.get()
 			|| item == ToolsOfTheGodsModItems.FLAIL_OF_THE_GODS.get()
 			|| item == ToolsOfTheGodsModItems.STAFF_OF_THE_GODS.get()
-			|| item == ToolsOfTheGodsModItems.WINGS_OF_THE_GODS.get()
 			|| item == ToolsOfTheGodsModItems.ULTIMATE_TOOL_OF_THE_GODS.get();
 	}
 }

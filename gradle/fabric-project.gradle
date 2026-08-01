@@ -104,7 +104,8 @@ sourceSets {
 					String rel = path.substring(commonJavaRoot.length()).replaceFirst('^/+', '')
 					rel == 'net/mcreator/toolsofthegods/ToolsOfTheGodsMod.java'
 						|| (rel.startsWith('net/mcreator/toolsofthegods/client/')
-							&& rel != 'net/mcreator/toolsofthegods/client/TraitSmithingTableScreen.java')
+							&& rel != 'net/mcreator/toolsofthegods/client/TraitSmithingTableScreen.java'
+							&& rel != 'net/mcreator/toolsofthegods/client/WingsResistHud.java')
 						|| rel == 'net/mcreator/toolsofthegods/config/ToolsOfTheGodsCommonConfig.java'
 						|| rel == 'net/mcreator/toolsofthegods/network/ActivatePickaxePowerMessage.java'
 						|| rel == 'net/mcreator/toolsofthegods/network/OpenGuideBookPayload.java'

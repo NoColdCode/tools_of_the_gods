@@ -8,6 +8,7 @@ version="${mod_version}"
 displayName="${mod_name}"
 displayURL="https://mcreator.net"
 authors="Swyde, MCreator"
+credits="Wing textures by OhDeerDreamy (Planet Minecraft)"
 description='''
 Progressive tools and weapons for Minecraft ${minecraft_version} (NeoForge).
 Shared assets live in :common; Java backport in version-specific common-* modules.

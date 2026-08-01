@@ -53,6 +53,6 @@ public class WingsOfTheGodsItem extends Item {
 	public void appendHoverText(ItemStack stack, Item.TooltipContext context, TooltipDisplay display, Consumer<Component> tooltipAdder, TooltipFlag flag) {
 		super.appendHoverText(stack, context, display, tooltipAdder, flag);
 		TogItemUtils.appendTogTooltip(stack, context, display, tooltipAdder, flag);
-		tooltipAdder.accept(Component.literal("\u00a78Chest slot · Cape → Elytra → Icarus flight"));
+		tooltipAdder.accept(Component.literal("\u00a78Chest slot · Cape → Elytra → Wings flight"));
 	}
 }

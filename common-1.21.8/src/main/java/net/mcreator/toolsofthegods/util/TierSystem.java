@@ -163,6 +163,42 @@ public class TierSystem {
 		}
 	}
 
+	/**
+	 * Wings display names (Dreamy elytra art). Upgrade gems stay on the normal tool path.
+	 * Suffix follows flight mode: Cape (0–1) → Elytra (2–5) → Wings (6–9).
+	 * Tier 9 is always {@code Wings of the Gods}.
+	 */
+	public static String getWingsTierName(int tier) {
+		return switch (Math.max(0, Math.min(MAX_TIER, tier))) {
+			case 0 -> "Crow";
+			case 1 -> "Magpie";
+			case 2 -> "Phantom";
+			case 3 -> "Crimson Rosella";
+			case 4 -> "Blue and Gold Macaw";
+			case 5 -> "Scarlet Macaw";
+			case 6 -> "Dark Spix Macaw";
+			case 7 -> "Spix Macaw";
+			case 8 -> "Allay";
+			default -> "Wings of the Gods";
+		};
+	}
+
+	/** Full inventory name for a wings tier (includes Cape / Elytra / Wings). */
+	public static String getWingsDisplayName(int tier) {
+		tier = Math.max(0, Math.min(MAX_TIER, tier));
+		if (tier >= MAX_TIER) {
+			return "Wings of the Gods";
+		}
+		String style = getWingsTierName(tier);
+		if (tier <= 1) {
+			return style + " Cape";
+		}
+		if (tier <= 5) {
+			return style + " Elytra";
+		}
+		return style + " Wings";
+	}
+
 	public static String getPickaxeDisplayName(int tier) {
 		if (tier >= MAX_TIER) {
 			return "Pickaxe of the Gods";

@@ -659,7 +659,7 @@ public class ToolProgressionHelper {
 			case SPEAR -> tier >= 9 ? "Spear of the Gods" : TierSystem.getTierName(tier) + " Spear";
 			case FLAIL -> tier >= 9 ? "Flail of the Gods" : TierSystem.getTierName(tier) + " Flail";
 			case STAFF -> tier >= 9 ? "Staff of the Gods" : TierSystem.getTierName(tier) + " Staff";
-			case WINGS -> tier >= 9 ? "Wings of the Gods" : TierSystem.getTierName(tier) + " Wings";
+			case WINGS -> TierSystem.getWingsDisplayName(tier);
 			case ARMOR -> getArmorDisplayName(stack, tier);
 			case SHIELD -> tier >= 9 ? "Shield of the Gods" : TierSystem.getArmorTierName(tier) + " Shield";
 			default -> "Tool";

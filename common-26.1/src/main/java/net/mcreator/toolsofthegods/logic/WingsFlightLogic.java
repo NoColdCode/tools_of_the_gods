@@ -13,15 +13,21 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.Vec3;
 
 import net.mcreator.toolsofthegods.init.ToolsOfTheGodsModItems;
+import net.mcreator.toolsofthegods.util.TierSystem;
 import net.mcreator.toolsofthegods.util.ToolProgressionHelper;
 import net.mcreator.toolsofthegods.util.TraitSystem;
 
 /**
- * Progressive wings: cape (0–20) → slow elytra (21–60) → Icarus free-flight (61–100).
+ * Progressive wings by tier (gem path unchanged):
+ * tiers 0–1 Cape → 2–5 Elytra → 6–9 Wings (look-up climb).
  */
 public final class WingsFlightLogic {
-	public static final int CAPE_MAX_LEVEL = 20;
-	public static final int ELYTRA_MAX_LEVEL = 60;
+	/** Highest tier that still uses cape (slow-fall) mode. User tiers 1–2. */
+	public static final int CAPE_MAX_TIER = 1;
+	/** Highest tier that uses elytra glide. User tiers 3–6. */
+	public static final int ELYTRA_MAX_TIER = 5;
+	/** Level at which Resistance (air time) becomes unlimited. */
+	public static final int INFINITE_RESIST_LEVEL = 100;
 
 	private static final String NBT_AIR_TICKS = "togWingAirTicks";
 
@@ -49,22 +55,23 @@ public final class WingsFlightLogic {
 		return (int) wings.getOrDefault(DataComponents.CUSTOM_DATA, CustomData.EMPTY).copyTag().getDoubleOr("level", 0.0);
 	}
 
+	public static int getTier(ItemStack wings) {
+		return ToolProgressionHelper.getStoredTier(wings);
+	}
+
 	public static Mode getMode(ItemStack wings) {
-		int level = getLevel(wings);
-		if (level <= CAPE_MAX_LEVEL) {
-			return Mode.CAPE;
-		}
-		if (level <= ELYTRA_MAX_LEVEL) {
-			return Mode.ELYTRA;
-		}
-		return Mode.ICARUS;
+		return getModeForTier(getTier(wings));
 	}
 
 	public static Mode getMode(int level) {
-		if (level <= CAPE_MAX_LEVEL) {
+		return getModeForTier(TierSystem.getTierFromLevel(level));
+	}
+
+	public static Mode getModeForTier(int tier) {
+		if (tier <= CAPE_MAX_TIER) {
 			return Mode.CAPE;
 		}
-		if (level <= ELYTRA_MAX_LEVEL) {
+		if (tier <= ELYTRA_MAX_TIER) {
 			return Mode.ELYTRA;
 		}
 		return Mode.ICARUS;
@@ -75,13 +82,20 @@ public final class WingsFlightLogic {
 		return 0.20f + 0.80f * (getLevel(wings) / 100.0f);
 	}
 
-	/** Max continuous air time in seconds before wings tire. */
+	public static boolean hasInfiniteResistance(ItemStack wings) {
+		return getLevel(wings) >= INFINITE_RESIST_LEVEL;
+	}
+
+	/** Max continuous air time in seconds before wings tire. {@link Float#POSITIVE_INFINITY} at level 100+. */
 	public static float getResistanceSeconds(ItemStack wings) {
+		if (hasInfiniteResistance(wings)) {
+			return Float.POSITIVE_INFINITY;
+		}
 		int level = getLevel(wings);
-		return switch (getMode(level)) {
-			case CAPE -> 4.0f + level * 0.20f;           // 4–8s
-			case ELYTRA -> 10.0f + (level - 21) * 0.50f; // ~10–30s
-			case ICARUS -> 35.0f + (level - 61) * 1.40f; // ~35–90s
+		return switch (getMode(wings)) {
+			case CAPE -> 4.0f + level * 0.20f;
+			case ELYTRA -> 10.0f + Math.max(0, level - 20) * 0.50f;
+			case ICARUS -> 35.0f + Math.max(0, level - 60) * 1.40f;
 		};
 	}
 
@@ -93,44 +107,60 @@ public final class WingsFlightLogic {
 	/** Minimum clear air blocks below the player to start powered flight. Lower is better. */
 	public static float getFlyHeight(ItemStack wings) {
 		int level = getLevel(wings);
-		if (level <= CAPE_MAX_LEVEL) {
-			return 0.0f;
-		}
-		if (level <= ELYTRA_MAX_LEVEL) {
-			return Mth.lerp((level - 21) / 39.0f, 4.0f, 2.0f);
-		}
-		return Mth.lerp((level - 61) / 39.0f, 2.0f, 1.0f);
+		return switch (getMode(wings)) {
+			case CAPE -> 0.0f;
+			case ELYTRA -> Mth.lerp(Mth.clamp((level - 20) / 39.0f, 0.0f, 1.0f), 4.0f, 2.0f);
+			case ICARUS -> Mth.lerp(Mth.clamp((level - 60) / 40.0f, 0.0f, 1.0f), 2.0f, 1.0f);
+		};
 	}
 
-	/** Elytra horizontal speed factor: 0.55 at L21 → 1.0 at L60; 1.05–1.25 in Icarus. */
+	/** Elytra horizontal speed factor. */
 	public static float getElytraSpeedFactor(ItemStack wings) {
 		int level = getLevel(wings);
-		if (level <= CAPE_MAX_LEVEL) {
-			return 0.0f;
-		}
-		if (level <= ELYTRA_MAX_LEVEL) {
-			return Mth.lerp((level - 21) / 39.0f, 0.55f, 1.0f);
-		}
-		return 1.05f + (level - 61) / 39.0f * 0.20f;
+		return switch (getMode(wings)) {
+			case CAPE -> 0.0f;
+			case ELYTRA -> Mth.lerp(Mth.clamp((level - 20) / 39.0f, 0.0f, 1.0f), 0.55f, 1.0f);
+			case ICARUS -> 1.05f + Mth.clamp((level - 60) / 40.0f, 0.0f, 1.0f) * 0.20f;
+		};
 	}
 
 	/** Fall damage multiplier while wearing wings (before Featherfall trait). */
 	public static float getFallDamageMultiplier(ItemStack wings) {
 		int level = getLevel(wings);
-		return switch (getMode(level)) {
-			case CAPE -> Mth.lerp(level / 20.0f, 0.70f, 0.30f);   // 30–70% reduction
-			case ELYTRA -> Mth.lerp((level - 21) / 39.0f, 0.45f, 0.25f);
-			case ICARUS -> Mth.lerp((level - 61) / 39.0f, 0.25f, 0.10f);
+		return switch (getMode(wings)) {
+			case CAPE -> Mth.lerp(Mth.clamp(level / 19.0f, 0.0f, 1.0f), 0.70f, 0.30f);
+			case ELYTRA -> Mth.lerp(Mth.clamp((level - 20) / 39.0f, 0.0f, 1.0f), 0.45f, 0.15f);
+			case ICARUS -> Mth.lerp(Mth.clamp((level - 60) / 40.0f, 0.0f, 1.0f), 0.15f, 0.0f);
 		};
+	}
+
+	/**
+	 * Kinetic ({@code fly_into_wall}) damage multiplier while wearing wings.
+	 * Shrinks across levels; fully disabled from {@link #KINETIC_IMMUNE_LEVEL} upward.
+	 */
+	public static final int KINETIC_IMMUNE_LEVEL = 50;
+
+	public static float getKineticDamageMultiplier(ItemStack wings) {
+		if (getMode(wings) == Mode.CAPE) {
+			return 1.0f;
+		}
+		int level = getLevel(wings);
+		if (level >= KINETIC_IMMUNE_LEVEL) {
+			return 0.0f;
+		}
+		// L20 → 90% damage remains; L50 → 0% (immune).
+		float t = Mth.clamp((level - 20) / (float) (KINETIC_IMMUNE_LEVEL - 20), 0.0f, 1.0f);
+		return Mth.lerp(t, 0.90f, 0.0f);
 	}
 
 	public static String getModeLabel(ItemStack wings) {
 		return switch (getMode(wings)) {
 			case CAPE -> "Cape";
 			case ELYTRA -> "Elytra";
-			case ICARUS -> "Icarus";
+			case ICARUS -> "Wings";
 		};
 	}
+
 
 	public static boolean canElytraFly(ItemStack stack, LivingEntity entity) {
 		if (!entity.getItemBySlot(EquipmentSlot.CHEST).is(ToolsOfTheGodsModItems.WINGS_OF_THE_GODS.get())) {
@@ -169,36 +199,41 @@ public final class WingsFlightLogic {
 			ToolProgressionHelper.gainXp(player.level(), player.getX(), player.getY(), player.getZ(), player, stack, xp);
 		}
 
-		float speed = getElytraSpeedFactor(stack);
-		float turn = getTurnSpeed(stack);
-		Vec3 look = player.getLookAngle();
+		Mode mode = getMode(stack);
 		Vec3 motion = player.getDeltaMovement();
 
-		// Softly steer toward look direction and scale speed vs vanilla elytra feel.
-		double mix = 0.04d + turn * 0.10d;
-		Vec3 steered = new Vec3(
-			Mth.lerp(mix, motion.x, look.x * motion.horizontalDistance()),
-			motion.y,
-			Mth.lerp(mix, motion.z, look.z * motion.horizontalDistance())
-		);
-		if (speed < 0.999f || speed > 1.001f) {
-			steered = new Vec3(steered.x * speed, steered.y, steered.z * speed);
-		}
+		if (mode == Mode.ELYTRA) {
+			// Vanilla elytra physics already ran — do not rewrite / damp XZ each tick
+			// (that was killing horizontal movement). Only light look-assist + dive nudge.
+			float turn = getTurnSpeed(stack);
+			float speed = getElytraSpeedFactor(stack);
+			Vec3 look = player.getLookAngle();
+			double boost = 0.012d * speed * (0.35d + turn * 0.65d);
+			motion = motion.add(look.x * boost, look.y * boost * 0.15d, look.z * boost);
 
-		if (TraitSystem.hasTrait(stack, TraitSystem.Trait.AERODYNAMIC_I)
-			|| TraitSystem.hasTrait(stack, TraitSystem.Trait.AERODYNAMIC_II)) {
-			if (steered.y < -0.1d) {
-				steered = new Vec3(steered.x * 1.02d, steered.y * 0.98d, steered.z * 1.02d);
+			if (TraitSystem.hasTrait(stack, TraitSystem.Trait.AERODYNAMIC_I)
+				|| TraitSystem.hasTrait(stack, TraitSystem.Trait.AERODYNAMIC_II)) {
+				if (motion.y < -0.1d) {
+					motion = new Vec3(motion.x * 1.01d, motion.y * 0.99d, motion.z * 1.01d);
+				}
 			}
+		} else if (mode == Mode.ICARUS) {
+			float turn = getTurnSpeed(stack);
+			Vec3 look = player.getLookAngle();
+			double mix = 0.03d + turn * 0.06d;
+			double horiz = Math.max(0.08d, motion.horizontalDistance());
+			motion = new Vec3(
+				Mth.lerp(mix, motion.x, look.x * horiz),
+				motion.y,
+				Mth.lerp(mix, motion.z, look.z * horiz)
+			);
+			motion = applyIcarusThrust(player, stack, motion);
 		}
 
-		if (getMode(stack) == Mode.ICARUS) {
-			steered = applyIcarusThrust(player, stack, steered);
-		}
-
-		player.setDeltaMovement(steered);
+		player.setDeltaMovement(motion);
 		return true;
 	}
+
 
 	/** Cape slow-fall + glider sync + Icarus; call every player tick while wings worn. */
 	public static void onPlayerTick(Player player) {
@@ -225,8 +260,13 @@ public final class WingsFlightLogic {
 
 		if (mode == Mode.ICARUS && airborne && hasStamina(wings)) {
 			if (player.getXRot() < -25.0f && hasClearance(player, wings)) {
-				Vec3 motion = player.getDeltaMovement();
-				player.setDeltaMovement(applyIcarusThrust(player, wings, motion));
+				if (!player.isFallFlying()) {
+					player.startFallFlying();
+				}
+				if (!player.isFallFlying()) {
+					Vec3 motion = player.getDeltaMovement();
+					player.setDeltaMovement(applyIcarusThrust(player, wings, motion));
+				}
 				player.fallDistance = Math.min(player.fallDistance, 2.0f);
 			}
 		}
@@ -274,7 +314,7 @@ public final class WingsFlightLogic {
 	private static Vec3 applyIcarusThrust(Player player, ItemStack wings, Vec3 motion) {
 		float pitch = player.getXRot();
 		float turn = getTurnSpeed(wings);
-		float power = 0.045f + (getLevel(wings) - 61) / 39.0f * 0.055f;
+		float power = 0.045f + Math.max(0, getLevel(wings) - 60) / 40.0f * 0.055f;
 		Vec3 look = player.getLookAngle();
 
 		if (pitch < -12.0f) {
@@ -315,6 +355,9 @@ public final class WingsFlightLogic {
 	}
 
 	private static boolean hasStamina(ItemStack wings) {
+		if (hasInfiniteResistance(wings)) {
+			return true;
+		}
 		int air = getAirTicks(wings);
 		return air < getResistanceSeconds(wings) * 20.0f;
 	}
@@ -325,6 +368,12 @@ public final class WingsFlightLogic {
 
 	private static void tickAirTime(ItemStack wings, Player player, boolean airborne) {
 		if (player.level().isClientSide()) {
+			return;
+		}
+		if (hasInfiniteResistance(wings)) {
+			if (getAirTicks(wings) != 0) {
+				CustomData.update(DataComponents.CUSTOM_DATA, wings, tag -> tag.putInt(NBT_AIR_TICKS, 0));
+			}
 			return;
 		}
 		if (!airborne || player.onGround()) {
@@ -338,8 +387,11 @@ public final class WingsFlightLogic {
 	}
 
 	public static float getStaminaRatio(ItemStack wings) {
+		if (hasInfiniteResistance(wings)) {
+			return 1.0f;
+		}
 		float max = getResistanceSeconds(wings) * 20.0f;
-		if (max <= 0.0f) {
+		if (max <= 0.0f || !Float.isFinite(max)) {
 			return 1.0f;
 		}
 		return Mth.clamp(1.0f - getAirTicks(wings) / max, 0.0f, 1.0f);

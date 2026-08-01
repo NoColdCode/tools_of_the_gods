@@ -76,10 +76,15 @@ public class UpgradePickaxeProcedure {
 			}
 
 			if (notifyPlayer && entity instanceof Player player) {
-				String tierLabel = ToolProgressionHelper.usesArmorProgression(toolType)
-					? TierSystem.getArmorTierName(nextTier)
-					: TierSystem.getTierName(nextTier);
-				player.displayClientMessage(Component.literal("§a§lUPGRADED! §6" + tierLabel + " Tier §aunlocked!"), false);
+				String tierLabel;
+				if (toolType == ToolProgressionHelper.ToolType.WINGS) {
+					tierLabel = TierSystem.getWingsDisplayName(nextTier);
+				} else if (ToolProgressionHelper.usesArmorProgression(toolType)) {
+					tierLabel = TierSystem.getArmorTierName(nextTier);
+				} else {
+					tierLabel = TierSystem.getTierName(nextTier);
+				}
+				player.displayClientMessage(Component.literal("§a§lUPGRADED! §6" + tierLabel + " §aunlocked!"), false);
 			}
 			return true;
 		}

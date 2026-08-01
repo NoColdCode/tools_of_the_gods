@@ -7,6 +7,7 @@ import net.neoforged.bus.api.SubscribeEvent;
 import net.minecraft.world.item.CreativeModeTabs;
 
 import net.mcreator.toolsofthegods.TogModConstants;
+import net.mcreator.toolsofthegods.init.TogCreativeTabHelper;
 import net.mcreator.toolsofthegods.init.ToolsOfTheGodsModItems;
 import net.mcreator.toolsofthegods.init.ToolsOfTheGodsOrbItems;
 import net.mcreator.toolsofthegods.item.TogGuideBookItem;
@@ -38,6 +39,7 @@ public final class NeoForgeModTabsHandler {
 			tabData.accept(ToolsOfTheGodsModItems.ARMOR_OF_THE_GODS_LEGGINGS.get());
 			tabData.accept(ToolsOfTheGodsModItems.ARMOR_OF_THE_GODS_BOOTS.get());
 			tabData.accept(ToolsOfTheGodsModItems.SHIELD_OF_THE_GODS.get());
+			TogCreativeTabHelper.acceptWings(tabData);
 			if (TogFeatures.extendedToolsEnabled()) {
 				tabData.accept(ToolsOfTheGodsModItems.FISHING_ROD_OF_THE_GODS.get());
 				tabData.accept(ToolsOfTheGodsModItems.CROSSBOW_OF_THE_GODS.get());
@@ -45,7 +47,6 @@ public final class NeoForgeModTabsHandler {
 				tabData.accept(ToolsOfTheGodsModItems.SPEAR_OF_THE_GODS.get());
 				tabData.accept(ToolsOfTheGodsModItems.FLAIL_OF_THE_GODS.get());
 				tabData.accept(ToolsOfTheGodsModItems.STAFF_OF_THE_GODS.get());
-				tabData.accept(ToolsOfTheGodsModItems.WINGS_OF_THE_GODS.get());
 				tabData.accept(ToolsOfTheGodsModItems.ULTIMATE_TOOL_OF_THE_GODS.get());
 			}
 		} else if (tabData.getTabKey() == CreativeModeTabs.INGREDIENTS) {

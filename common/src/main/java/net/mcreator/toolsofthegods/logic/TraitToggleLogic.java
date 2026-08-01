@@ -7,6 +7,7 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 
 import net.mcreator.toolsofthegods.procedures.UpgradePickaxeProcedure;
+import net.mcreator.toolsofthegods.util.TogEquipmentHelper;
 import net.mcreator.toolsofthegods.util.TraitSystem;
 import net.mcreator.toolsofthegods.util.ToolProgressionHelper;
 import net.mcreator.toolsofthegods.util.ToolProgressionHelper.ToolType;
@@ -33,18 +34,32 @@ public final class TraitToggleLogic {
 		}
 
 		ItemStack stack = ctx.itemStack();
+
+		if (ToolProgressionHelper.isTogTool(stack)
+			&& ToolProgressionHelper.getToolType(stack) != ToolProgressionHelper.ToolType.ULTIMATE
+			&& ToolProgressionHelper.needsUpgrade(stack)) {
+			UpgradePickaxeProcedure.tryUpgrade(
+				ctx.level(), player.getX(), player.getY(), player.getZ(), player, stack);
+			ctx.setCanceled(true);
+			return;
+		}
+
+		// Worn wings (chest) — shift+RClick with empty hand / gem still upgrades.
+		ItemStack wornWings = TogEquipmentHelper.getTogWings(player);
+		if (!wornWings.isEmpty() && ToolProgressionHelper.needsUpgrade(wornWings)) {
+			boolean upgraded = UpgradePickaxeProcedure.tryUpgrade(
+				ctx.level(), player.getX(), player.getY(), player.getZ(), player, wornWings);
+			if (upgraded) {
+				ctx.setCanceled(true);
+				return;
+			}
+		}
+
 		if (!ToolProgressionHelper.isTogTool(stack)) {
 			return;
 		}
 
 		if (ToolProgressionHelper.getToolType(stack) == ToolProgressionHelper.ToolType.ULTIMATE) {
-			return;
-		}
-
-		if (ToolProgressionHelper.needsUpgrade(stack)) {
-			UpgradePickaxeProcedure.tryUpgrade(
-				ctx.level(), player.getX(), player.getY(), player.getZ(), player, stack);
-			ctx.setCanceled(true);
 			return;
 		}
 

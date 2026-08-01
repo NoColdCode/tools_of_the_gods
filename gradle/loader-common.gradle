@@ -9,6 +9,7 @@ ext.togCommonMergeExcludes = { String rel, boolean excludeModClass, boolean excl
 	if (rel.startsWith('net/mcreator/toolsofthegods/client/')) {
 		def allowed = [
 			'net/mcreator/toolsofthegods/client/TraitSmithingTableScreen.java',
+			'net/mcreator/toolsofthegods/client/WingsResistHud.java',
 		]
 		if (includeDynamicTextureHandler) {
 			allowed << 'net/mcreator/toolsofthegods/client/DynamicTextureHandler.java'

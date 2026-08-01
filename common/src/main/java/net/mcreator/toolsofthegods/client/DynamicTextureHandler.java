@@ -26,6 +26,7 @@ public class DynamicTextureHandler {
 		ItemProperties.register(ToolsOfTheGodsModItems.TRIDENT_OF_THE_GODS.get(), tierPredicate, tierFn);
 		ItemProperties.register(ToolsOfTheGodsModItems.SPEAR_OF_THE_GODS.get(), tierPredicate, tierFn);
 		ItemProperties.register(ToolsOfTheGodsModItems.FLAIL_OF_THE_GODS.get(), tierPredicate, tierFn);
+		ItemProperties.register(ToolsOfTheGodsModItems.WINGS_OF_THE_GODS.get(), tierPredicate, tierFn);
 		ItemProperties.register(ToolsOfTheGodsModItems.ARMOR_OF_THE_GODS_HELMET.get(), tierPredicate, tierFn);
 		ItemProperties.register(ToolsOfTheGodsModItems.ARMOR_OF_THE_GODS_CHESTPLATE.get(), tierPredicate, tierFn);
 		ItemProperties.register(ToolsOfTheGodsModItems.ARMOR_OF_THE_GODS_LEGGINGS.get(), tierPredicate, tierFn);
